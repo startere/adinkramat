@@ -1,0 +1,591 @@
+//
+//  AdinkraDocument.m
+//  Adinkramatic
+//
+//  Created by Greg Landweber on 8/11/06.
+//  Copyright 2006 Gregory D. Landweber. All rights reserved.
+//
+
+#import "AdinkraDocument.h"
+#import "Adinkra+Clifford.h"
+#import "Clifford.h"
+
+@implementation AdinkraDocument
+
+#pragma mark NSObject Methods
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+    
+		theAdinkra = nil;
+		showEdges = nil;
+		edgeSet = nil;
+		N = 0;
+		drawDashedEdges = YES;
+		awake = NO;
+		cancelled = NO;
+		pool = nil;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+	[pool release];
+	
+	[edgeSet release];
+	[super dealloc];
+}
+
+#pragma mark NSNibAwakening Protocol
+
+- (void)awakeFromNib
+{
+	if ( theAdinkra ) {
+		[adinkraView setAdinkra: theAdinkra];
+		[theAdinkra release];
+		theAdinkra = nil;
+	
+		if ( showEdges ) {
+			NSMutableSet *newEdgeSet = [NSMutableSet setWithCapacity:32];
+			int i;
+			for (i = 1; i <= 32; i++ )
+				if ( [ [showEdges objectAtIndex: i-1] boolValue ] )
+					[newEdgeSet addObject: [NSNumber numberWithInt: i ] ];
+			
+			[self setEdgeSet: newEdgeSet];
+			
+			[showEdges release];
+			showEdges = nil;
+		}
+		
+		[edgeMax setIntValue: N];
+		[edgeStepper setMaxValue: N];
+		[edgeStepper setIntValue: N];
+		
+		[oneEdge setIntValue: 1];
+		[oneEdgeStepper setMaxValue: N];
+		[oneEdgeStepper setIntValue: 1];
+		
+		[dashedEdgesButton setIntValue: drawDashedEdges];
+		[adinkraView setDrawDashedEdges: drawDashedEdges];
+
+		if ( !awake ) {
+			awake = YES;
+			if ( N > 8 )
+				[adinkraView setFillWindow: YES];
+			[self resizeWindowToAdinkra];
+		}
+	}
+}
+
+#pragma mark NSDocument Methods
+
+- (NSString *)windowNibName
+{
+    // Override returning the nib file name of the document
+    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
+    return @"AdinkraDocument";
+}
+
+- (void)windowControllerDidLoadNib:(NSWindowController *) aController
+{
+    [super windowControllerDidLoadNib:aController];
+    // Add any code here that needs to be executed once the windowController has loaded the document's window.
+}
+ 
+/* Deprecated
+- (NSData *)dataRepresentationOfType:(NSString *)aType
+{
+    // Insert code here to write your document from the given data.  You can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
+    
+    // For applications targeted for Tiger or later systems, you should use the new Tiger API -dataOfType:error:.  In this case you can also choose to override -writeToURL:ofType:error:, -fileWrapperOfType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
+
+    return nil;
+}
+*/
+
+- (BOOL)writeToURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
+{
+	if ( [typeName isEqualToString: @"Adinkra" ] ) {
+		Adinkra *anAdinkra = [adinkraView adinkra];
+		
+		if ( anAdinkra ) {
+			NSMutableDictionary *theDictionary = [[anAdinkra dictionary] mutableCopy];
+			[theDictionary setObject:[NSNumber numberWithInt: N] forKey:@"N" ];
+			[theDictionary setObject:[NSNumber numberWithBool: [dashedEdgesButton intValue]] forKey:@"drawDashedEdges"];
+			
+			{
+				NSMutableArray *showEdgeArray = [NSMutableArray arrayWithCapacity:32];
+				int i;
+	
+				for (i = 1; i <= 32; i++ )
+					[showEdgeArray addObject: [NSNumber numberWithBool: [[edgeMatrix cellWithTag:i] intValue]]];
+					
+				[theDictionary setObject: showEdgeArray forKey: @"showEdges"];
+			}
+			
+			BOOL success = [theDictionary writeToURL:absoluteURL atomically: YES];
+			if ( !success )
+				*outError = [NSError errorWithDomain: @"com.cohomology.Adinkramat.ErrorDomain"
+									 code: 0
+									 userInfo: nil];
+			return success;
+		}
+		else {
+			*outError = [NSError errorWithDomain: @"com.cohomology.Adinkramat.ErrorDomain"
+								 code: 0
+								 userInfo: nil];
+			return NO;
+		}
+	}
+	
+	if ( [typeName isEqualToString: @"EPS" ] ) {
+		NSData *data = [adinkraView dataWithEPSInsideRect:[adinkraView shrinkWrappedBounds]];
+		return [data writeToURL:absoluteURL options:NSAtomicWrite error:outError];
+	}
+
+	if ( [typeName isEqualToString: @"PDF" ] ) {
+		NSData *data = [adinkraView dataWithPDFInsideRect:[adinkraView shrinkWrappedBounds]];
+		return [data writeToURL:absoluteURL options:NSAtomicWrite error:outError];
+	}
+	
+	*outError = [NSError errorWithDomain: @"com.cohomology.Adinkramat.ErrorDomain"
+						 code: 0
+						 userInfo: nil];
+	return NO;
+}
+
+/* Deprecated
+- (BOOL)loadDataRepresentation:(NSData *)data ofType:(NSString *)aType
+{
+    // Insert code here to read your document from the given data.  You can also choose to override -loadFileWrapperRepresentation:ofType: or -readFromFile:ofType: instead.
+    
+    // For applications targeted for Tiger or later systems, you should use the new Tiger API readFromData:ofType:error:.  In this case you can also choose to override -readFromURL:ofType:error: or -readFromFileWrapper:ofType:error: instead.
+    
+    return YES;
+}
+*/
+
+- (BOOL)readFromURL:(NSURL *)absoluteURL ofType:(NSString *)typeName error:(NSError **)outError
+{
+	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfURL: absoluteURL];
+	
+	if ( dictionary ) {
+		theAdinkra = [[Adinkra adinkraWithDictionary: dictionary] retain];
+		
+		N = [[dictionary objectForKey: @"N"] intValue];
+		
+		if ( [dictionary objectForKey: @"showEdges"] )
+			showEdges = [[dictionary objectForKey: @"showEdges"] retain];
+		else {
+			showEdges = [[NSMutableArray arrayWithCapacity:32] retain];
+			int i;
+			for (i = 1; i <= 32; i++ )
+				[showEdges addObject: [NSNumber numberWithBool: i <= N]];
+		}
+		
+		if ( [dictionary objectForKey: @"drawDashedEdges"] )
+			drawDashedEdges = [[dictionary objectForKey: @"drawDashedEdges"] boolValue];
+		else
+			drawDashedEdges = (N > 8) ? NO : YES;
+
+		if ( theAdinkra ) {
+			if ( adinkraView )
+				[self awakeFromNib]; // update values in adinkraView
+			return YES;
+		}
+		else {
+			*outError = [NSError errorWithDomain: @"com.cohomology.Adinkramat.ErrorDomain"
+								 code: 0
+								 userInfo: nil];
+			return NO;
+		}
+	}
+	else {
+		*outError = [NSError errorWithDomain: @"com.cohomology.Adinkramat.ErrorDomain"
+							 code: 0
+							 userInfo: nil];
+		return NO;
+	}
+}
+
+- (NSPrintOperation *)printOperationWithSettings:(NSDictionary *)printSettings error:(NSError **)outError
+{
+	NSPrintInfo *printInfo = [self printInfo];
+	[printInfo setHorizontalPagination: NSFitPagination];
+	[printInfo setVerticalPagination: NSFitPagination];
+	
+	return [ NSPrintOperation printOperationWithView: adinkraView ];
+}
+
+- (void)showWindows
+{
+	[super showWindows];
+	
+	if ( ![adinkraView adinkra] )
+		[self new:self];
+}
+
+#pragma mark NSMenuValidation Protocol
+
+- (BOOL)validateMenuItem:(id <NSMenuItem>)menuItem
+{
+
+	if ( [menuItem action] == @selector(scaleToWindow:) ) {
+		if ( [adinkraView doesFillWindow] )
+			[menuItem setState: NSOnState];
+		else
+			[menuItem setState: NSOffState];
+	}
+
+	if ( [menuItem action] == @selector(toggleEdgeDrawer:) ) {
+		if ( [edgeDrawer state] == NSDrawerOpenState || [edgeDrawer state] == NSDrawerOpeningState )
+			[menuItem setTitle: @"Hide Edge Drawer"];
+		else
+			[menuItem setTitle: @"Show Edge Drawer"];
+	}
+
+	return true;
+}
+
+#pragma mark My NSResponder Actions
+
+- (IBAction)scaleToWindow:(id)sender
+{
+	[adinkraView setFillWindow: ![adinkraView doesFillWindow] ];
+	
+	if ( [adinkraView doesFillWindow] )
+		[self windowDidResize:nil];
+	else {
+		[adinkraView setFrame: [adinkraView bounds] ];
+		[adinkraView locateVerticesWithAnimation: NO];
+	}
+	
+	[adinkraView setNeedsDisplay: TRUE];
+}
+
+- (IBAction)toggleEdgeDrawer:(id)sender
+{
+	[edgeDrawer toggle:self];
+}
+
+#pragma mark AdinkraDocument Actions
+
+- (IBAction)allEdgesUpToN:(id)sender
+{
+	if ( sender ) {
+		[edgeMax takeIntValueFrom: sender];
+		[edgeStepper takeIntValueFrom: sender];
+	}
+	
+	int max = [edgeMax intValue];
+	
+	int i;
+
+	for (i = 1; i <= 32; i++ ) {
+		NSButton *theButton = [edgeMatrix cellWithTag:i];
+		[theButton setIntValue: i <= max ? YES : NO];
+	}
+	
+	[self showEdges: self];
+}
+
+- (IBAction)oneEdge:(id)sender
+{
+	if ( sender ) {
+		[oneEdge takeIntValueFrom: sender];
+		[oneEdgeStepper takeIntValueFrom: sender];
+	}
+	
+	int Q = [oneEdge intValue];
+	
+	int i;
+
+	for (i = 1; i <= 32; i++ ) {
+		NSButton *theButton = [edgeMatrix cellWithTag:i];
+		[theButton setIntValue: i == Q ? YES : NO];
+	}
+	
+	[self showEdges: self];
+}
+
+- (IBAction)cancel:(id)sender
+{
+	[NSApp endSheet:adinkraSheet];
+	[adinkraSheet orderOut: self];
+
+	if ( [OKButton isEnabled] )
+		[self close];
+	else
+		cancelled = YES;
+}
+
+- (IBAction)new:(id)sender
+{
+	[NSApp beginSheet:adinkraSheet
+		   modalForWindow:[self windowForSheet]
+		   modalDelegate:nil
+		   didEndSelector:nil
+		   contextInfo:nil];
+}
+
+
+- (IBAction)OK:(id)sender
+{	
+	N = [NField intValue];
+	adinkraTypeCode = [[adinkraType objectValue] intValue];
+	isValise = [[extendedValise objectValue] intValue];
+	
+	[OKButton setEnabled: NO];
+	[NField setEnabled: NO];
+	[adinkraType setEnabled: NO];
+	
+	[adinkraProgress setDoubleValue: 0.0];
+	[adinkraString setStringValue: @""];
+	
+	float deltaHeight = [adinkraSheet maxSize].height - [adinkraSheet minSize].height;
+	
+	NSRect oldFrame, newFrame;
+	oldFrame = newFrame = [adinkraSheet frame];	
+	newFrame.size.height += deltaHeight;
+	newFrame.origin.y -= deltaHeight;
+	[[adinkraSheet contentView] setBoundsOrigin: NSMakePoint ( 0.0, -deltaHeight ) ];
+	[adinkraSheet setFrame: newFrame display: YES animate:YES];
+	
+	[edgeMax setIntValue: N];
+	[edgeStepper setMaxValue: N];
+	[edgeStepper setIntValue: N];
+	
+	[oneEdge setIntValue: 1];
+	[oneEdgeStepper setMaxValue: N];
+	[oneEdgeStepper setIntValue: 1];
+
+	[self allEdgesUpToN:nil];
+	
+	[dashedEdgesButton setIntValue: (N > 8) ? 0 : 1];
+	[adinkraView setDrawDashedEdges: (N > 8) ? NO : YES];
+	
+	[self detatchAdinkraConstructionThread];	
+}
+
+- (IBAction)showEdges:(id)sender
+{
+	NSMutableSet *newEdgeSet = [NSMutableSet setWithCapacity:32];
+	
+	int i;
+	
+	for (i = 1; i <= 32; i++ ) {
+		NSButton *theButton = [edgeMatrix cellWithTag:i];
+		if ( [theButton intValue] )
+			[newEdgeSet addObject: [NSNumber numberWithInt: i]];
+	}
+	
+	[self setEdgeSet: newEdgeSet];
+}
+
+- (IBAction)dashedEdges:(id)sender
+{
+	BOOL newDrawDashedEdges = [dashedEdgesButton intValue];
+	[self setDrawDashedEdges: [NSNumber numberWithBool: newDrawDashedEdges]];
+	[[self undoManager] setActionName: newDrawDashedEdges ? @"Switch On Dashed Edges"
+						 								  : @"Switch Off Dashed Edges" ];
+}
+
+#pragma mark AdinkraDocument Undo Methods
+
+- (void)setDrawDashedEdges: (NSNumber *)drawDashedEdgesObject
+{
+	BOOL oldDrawDashedEdges = [adinkraView doesDrawDashedEdges];
+	BOOL newDrawDashedEdges = [drawDashedEdgesObject boolValue];
+	
+	if ( oldDrawDashedEdges != newDrawDashedEdges ) {
+		[dashedEdgesButton setIntValue:newDrawDashedEdges];
+		[adinkraView setDrawDashedEdges: newDrawDashedEdges];
+
+		[[self undoManager] registerUndoWithTarget: self
+										  selector: @selector(setDrawDashedEdges:)
+											object: [NSNumber numberWithBool: oldDrawDashedEdges] ];
+	}
+}
+
+- (void)setEdgeSet: (NSSet *)newEdgeSet
+{
+	if ( [newEdgeSet isEqual: edgeSet ] )
+		return;
+		
+	NSUndoManager *undoManager = [self undoManager];
+	
+	if ( edgeSet ) {
+		[undoManager registerUndoWithTarget: self
+								   selector: @selector(setEdgeSet:)
+									 object: edgeSet];
+		[ undoManager setActionName: @"Change Shown Edges" ];
+	}
+	
+	[edgeSet autorelease];
+	edgeSet = [newEdgeSet retain];
+	
+	int i;
+	for ( i = 1; i <= 32; i++ ) {
+		NSButton *theButton = [edgeMatrix cellWithTag:i];
+		[theButton setIntValue: [edgeSet containsObject: [NSNumber numberWithInt: i] ] ];
+	}
+	
+	[adinkraView setEdgeSet: edgeSet];
+}
+
+#pragma mark AdinkraDocument Methods
+
+- (void)resizeWindowToAdinkra
+{	
+	Adinkra *anAdinkra = [adinkraView adinkra];
+	
+	if ( anAdinkra ) {
+		NSWindow *window = [adinkraView window];
+
+		NSRect oldFrameRect, newFrameRect, screenRect;
+		
+		oldFrameRect = [window frame];
+		newFrameRect = [window frameRectForContentRect: [adinkraView bounds]];
+		screenRect = [[window screen] frame];
+		
+		newFrameRect.origin = NSMakePoint ( NSMinX ( oldFrameRect ), NSMaxY ( oldFrameRect ) - newFrameRect.size.height );
+		
+		if ( NSMaxX ( newFrameRect ) > NSMaxX ( screenRect ) )
+			newFrameRect.size.width = NSMaxX ( screenRect ) - NSMinX ( newFrameRect );
+		if ( NSMinY ( newFrameRect ) < NSMinY ( screenRect ) ) {
+			newFrameRect.size.height = NSMaxY ( newFrameRect ) - NSMinY ( screenRect );
+			newFrameRect.origin.y = NSMinY ( screenRect );
+		}
+		
+		[ window setFrame: newFrameRect display: YES animate: [anAdinkra vertexCount] <= 256 ];
+	}
+}
+
+#pragma mark ShowsProgress Protocol
+
+- (void) setProgressValue: (unsigned long)value maxValue: (unsigned long)max message: (NSString *)aString
+{
+	[self performSelectorOnMainThread:@selector(showProgress:)
+						   withObject:[NSDictionary dictionaryWithObjectsAndKeys:
+										[NSNumber numberWithUnsignedLong:max], @"max",
+										[NSNumber numberWithUnsignedLong:value], @"value",
+										aString, @"string",
+										nil]
+						waitUntilDone:NO ];
+												
+	if ( cancelled ) {
+		[pool release];
+		[NSThread exit];
+	}	
+}
+
+#pragma mark NSWindow Delegate Methods
+
+- (NSRect)windowWillUseStandardFrame:(NSWindow *)sender defaultFrame:(NSRect)defaultFrame
+{
+	if ( [adinkraView doesFillWindow] )
+		return defaultFrame;
+	else {
+		NSRect newFrame;
+		newFrame.size = [sender frameRectForContentRect:[adinkraView bounds]].size;
+		newFrame.origin.x = defaultFrame.origin.x;
+		newFrame.origin.y = defaultFrame.origin.y + defaultFrame.size.height - newFrame.size.height;
+		return NSIntersectionRect ( newFrame, defaultFrame );
+	}
+}
+
+- (void)windowDidResize:(NSNotification *)aNotification
+{
+	if ( [adinkraView doesFillWindow] )
+		[adinkraView setFrame: [[[adinkraView window] contentView] frame] ];
+}
+
+#pragma mark AdinkraDocument Thread Methods
+
+- (void)detatchAdinkraConstructionThread
+{	
+    [NSThread detachNewThreadSelector:@selector(constructAdinkra:)
+							 toTarget:self
+						   withObject:nil];
+}
+
+- (void)constructAdinkra: (id)anObject
+{
+    pool = [[NSAutoreleasePool alloc] init];
+ 
+	Adinkra *anAdinkra = nil;
+	
+	switch ( adinkraTypeCode ) {  //adinkraType
+	case 0 :
+		anAdinkra = [Adinkra exteriorAdinkraWithN: N sender: self];
+		
+		break;
+		
+	case 1 :
+		anAdinkra = [Adinkra adinkraE8timesE8: N sender: self];
+	//	anAdinkra = [Adinkra irreducibleAdinkraWithN: N
+	//						 alternativeSpinStructure: NO
+	//										   sender: self ];
+	//  theAdinkra = [Adinkra quotientAdinkraWithN: [NField intValue]
+	//						  commutingInvolutions: [Clifford basicCommutingInvolutionsWithN: [NField intValue]]
+	//										sender: self];
+		break;
+		
+	case 2 :
+		anAdinkra = [Adinkra adinkraEN: N sender: self];
+	//	anAdinkra = [Adinkra extendedIrreducibleAdinkraWithN: N sender: self];
+		break;
+	
+	case 3 : // type D_N
+		anAdinkra = [Adinkra adinkraDN: N sender: self];
+		break;
+	}
+	
+	if ( isValise )
+		anAdinkra = [anAdinkra makeTwoDegreesWithLowestDegreeFermions: NO ];
+	
+	[anAdinkra setHorizontal];
+
+	[self performSelectorOnMainThread:@selector(setAdinkra:)
+						   withObject:anAdinkra
+						waitUntilDone:YES ];
+						
+	[pool release];
+	pool = nil;
+}
+
+- (void) showProgress: (NSDictionary *)userInfo
+{
+	if ( cancelled ) {
+		[self close];
+		return;
+	}
+	
+	[adinkraProgress setMinValue: 0.0];
+	[adinkraProgress setMaxValue: [[userInfo objectForKey:@"max"] doubleValue]];
+	[adinkraProgress setDoubleValue: [[userInfo objectForKey:@"value"] doubleValue]];
+	[adinkraString setStringValue: [userInfo objectForKey:@"string"]];
+}
+
+- (void) setAdinkra: (Adinkra *)anAdinkra
+{	
+	if ( cancelled ) {
+		[self close];
+		return;
+	}
+
+	[NSApp endSheet:adinkraSheet];
+	[adinkraSheet orderOut: self];
+	
+	[adinkraView setAdinkra: anAdinkra];
+	
+	if ( N > 8 )
+		[adinkraView setFillWindow: YES];
+	[self resizeWindowToAdinkra];
+}
+
+@end

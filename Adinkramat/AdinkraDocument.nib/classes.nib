@@ -1,0 +1,37 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                OK = id; 
+                allEdgesUpToN = id; 
+                cancel = id; 
+                dashedEdges = id; 
+                oneEdge = id; 
+                showEdges = id; 
+            }; 
+            CLASS = AdinkraDocument; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                NField = id; 
+                OKButton = id; 
+                adinkraProgress = id; 
+                adinkraSheet = id; 
+                adinkraString = id; 
+                adinkraType = id; 
+                adinkraView = id; 
+                dashedEdgesButton = id; 
+                edgeDrawer = id; 
+                edgeMatrix = id; 
+                edgeMax = id; 
+                edgeStepper = id; 
+                extendedValise = id; 
+                oneEdge = id; 
+                oneEdgeStepper = id; 
+            }; 
+            SUPERCLASS = NSDocument; 
+        }, 
+        {CLASS = AdinkraView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

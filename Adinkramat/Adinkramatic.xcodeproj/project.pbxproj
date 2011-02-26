@@ -1,0 +1,355 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37112FD20ABF8A1400DDADF0 /* CliffordOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37112FD10ABF8A1400DDADF0 /* CliffordOperation.m */; };
+		3723D2DD0A8DD19E00B69D4F /* DFGHIL.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3723D2DC0A8DD19E00B69D4F /* DFGHIL.icns */; };
+		37770FA30A8D6B1A00C9BF9D /* AdinkraDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 37770FA20A8D6B1A00C9BF9D /* AdinkraDocument.m */; };
+		37770FBA0A8D6D2C00C9BF9D /* AdinkraDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 37770FB90A8D6D2C00C9BF9D /* AdinkraDocument.nib */; };
+		37A6234B0A86A75B006D562D /* AdinkraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A6234A0A86A75B006D562D /* AdinkraView.m */; };
+		37BFB5050A8B15020061617A /* NSUserDefaults+myColorSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BFB5040A8B15020061617A /* NSUserDefaults+myColorSupport.m */; };
+		37BFBAF30A8B35110061617A /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37BFBAF20A8B35110061617A /* defaults.plist */; };
+		37C55D7B0A902037004B2444 /* Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C55D7A0A902037004B2444 /* Vertex.m */; };
+		37C55D980A9021A8004B2444 /* Edge.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C55D970A9021A8004B2444 /* Edge.m */; };
+		37C55DB10A90231D004B2444 /* Clifford.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C55DB00A90231D004B2444 /* Clifford.m */; };
+		37C55EC50A903014004B2444 /* Adinkra+Clifford.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C55EC40A903014004B2444 /* Adinkra+Clifford.m */; };
+		37C6D5371318D02800283260 /* DoublyEvenCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C6D5351318D02800283260 /* DoublyEvenCode.m */; };
+		37FAD69A0A7B2BF30078C7E2 /* Adinkra.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FAD6990A7B2BF30078C7E2 /* Adinkra.m */; };
+		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Adinkramatic_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Adinkramatic_Prefix.pch; sourceTree = "<group>"; };
+		37112FD00ABF8A1400DDADF0 /* CliffordOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CliffordOperation.h; sourceTree = "<group>"; };
+		37112FD10ABF8A1400DDADF0 /* CliffordOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CliffordOperation.m; sourceTree = "<group>"; };
+		3723D2DC0A8DD19E00B69D4F /* DFGHIL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = DFGHIL.icns; sourceTree = "<group>"; };
+		37770FA10A8D6B1A00C9BF9D /* AdinkraDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdinkraDocument.h; sourceTree = "<group>"; };
+		37770FA20A8D6B1A00C9BF9D /* AdinkraDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdinkraDocument.m; sourceTree = "<group>"; };
+		37770FB90A8D6D2C00C9BF9D /* AdinkraDocument.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = AdinkraDocument.nib; sourceTree = "<group>"; };
+		37A623470A86A697006D562D /* AdinkraView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AdinkraView.h; sourceTree = "<group>"; };
+		37A6234A0A86A75B006D562D /* AdinkraView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AdinkraView.m; sourceTree = "<group>"; };
+		37BFB5030A8B15020061617A /* NSUserDefaults+myColorSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+myColorSupport.h"; sourceTree = "<group>"; };
+		37BFB5040A8B15020061617A /* NSUserDefaults+myColorSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+myColorSupport.m"; sourceTree = "<group>"; };
+		37BFBAF20A8B35110061617A /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = defaults.plist; sourceTree = "<group>"; };
+		37C55D170A90192A004B2444 /* ShowsProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowsProgress.h; sourceTree = "<group>"; };
+		37C55D790A902037004B2444 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		37C55D7A0A902037004B2444 /* Vertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vertex.m; sourceTree = "<group>"; };
+		37C55D960A9021A8004B2444 /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
+		37C55D970A9021A8004B2444 /* Edge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Edge.m; sourceTree = "<group>"; };
+		37C55DAF0A90231D004B2444 /* Clifford.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clifford.h; sourceTree = "<group>"; };
+		37C55DB00A90231D004B2444 /* Clifford.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clifford.m; sourceTree = "<group>"; };
+		37C55EC30A903014004B2444 /* Adinkra+Clifford.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Adinkra+Clifford.h"; sourceTree = "<group>"; };
+		37C55EC40A903014004B2444 /* Adinkra+Clifford.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Adinkra+Clifford.m"; sourceTree = "<group>"; };
+		37C6D5351318D02800283260 /* DoublyEvenCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoublyEvenCode.m; sourceTree = "<group>"; };
+		37C6D5361318D02800283260 /* DoublyEvenCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoublyEvenCode.h; sourceTree = "<group>"; };
+		37D163360A9EB4E20026485D /* junk */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = junk; sourceTree = "<group>"; };
+		37FAD6980A7B2BF30078C7E2 /* Adinkra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Adinkra.h; sourceTree = "<group>"; };
+		37FAD6990A7B2BF30078C7E2 /* Adinkra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Adinkra.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Adinkramat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adinkramat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				37C55D170A90192A004B2444 /* ShowsProgress.h */,
+				37C55D790A902037004B2444 /* Vertex.h */,
+				37C55D7A0A902037004B2444 /* Vertex.m */,
+				37C55D960A9021A8004B2444 /* Edge.h */,
+				37C55D970A9021A8004B2444 /* Edge.m */,
+				37FAD6980A7B2BF30078C7E2 /* Adinkra.h */,
+				37FAD6990A7B2BF30078C7E2 /* Adinkra.m */,
+				37C55DAF0A90231D004B2444 /* Clifford.h */,
+				37C55DB00A90231D004B2444 /* Clifford.m */,
+				37112FD00ABF8A1400DDADF0 /* CliffordOperation.h */,
+				37112FD10ABF8A1400DDADF0 /* CliffordOperation.m */,
+				37C55EC30A903014004B2444 /* Adinkra+Clifford.h */,
+				37C55EC40A903014004B2444 /* Adinkra+Clifford.m */,
+				37770FA10A8D6B1A00C9BF9D /* AdinkraDocument.h */,
+				37770FA20A8D6B1A00C9BF9D /* AdinkraDocument.m */,
+				37A623470A86A697006D562D /* AdinkraView.h */,
+				37A6234A0A86A75B006D562D /* AdinkraView.m */,
+				37BFB5030A8B15020061617A /* NSUserDefaults+myColorSupport.h */,
+				37BFB5040A8B15020061617A /* NSUserDefaults+myColorSupport.m */,
+				37C6D5351318D02800283260 /* DoublyEvenCode.m */,
+				37C6D5361318D02800283260 /* DoublyEvenCode.h */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Adinkramat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Adinkramatic */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Adinkramatic;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* Adinkramatic_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				37D163360A9EB4E20026485D /* junk */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3723D2DC0A8DD19E00B69D4F /* DFGHIL.icns */,
+				37BFBAF20A8B35110061617A /* defaults.plist */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				37770FB90A8D6D2C00C9BF9D /* AdinkraDocument.nib */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Adinkramatic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Adinkramatic" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Adinkramatic;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Adinkramatic;
+			productReference = 8D1107320486CEB800E47090 /* Adinkramat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Adinkramatic" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Adinkramatic */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Adinkramatic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				37BFBAF30A8B35110061617A /* defaults.plist in Resources */,
+				37770FBA0A8D6D2C00C9BF9D /* AdinkraDocument.nib in Resources */,
+				3723D2DD0A8DD19E00B69D4F /* DFGHIL.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				37FAD69A0A7B2BF30078C7E2 /* Adinkra.m in Sources */,
+				37A6234B0A86A75B006D562D /* AdinkraView.m in Sources */,
+				37BFB5050A8B15020061617A /* NSUserDefaults+myColorSupport.m in Sources */,
+				37770FA30A8D6B1A00C9BF9D /* AdinkraDocument.m in Sources */,
+				37C55D7B0A902037004B2444 /* Vertex.m in Sources */,
+				37C55D980A9021A8004B2444 /* Edge.m in Sources */,
+				37C55DB10A90231D004B2444 /* Clifford.m in Sources */,
+				37C55EC50A903014004B2444 /* Adinkra+Clifford.m in Sources */,
+				37112FD20ABF8A1400DDADF0 /* CliffordOperation.m in Sources */,
+				37C6D5371318D02800283260 /* DoublyEvenCode.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Adinkramat;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = s;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Adinkramat;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Adinkramatic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Adinkramatic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
