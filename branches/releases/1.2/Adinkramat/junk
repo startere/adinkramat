@@ -1,0 +1,54 @@
+@protocol AdinkraDocument
+//- (int) N;
+//- (int) adinkraType;
+//- (MutableAdinkra *) adinkra;
+//- (oneway void) setAdinkraWithUTF8String: (const char *) aString;
+- (void) showProgress: (NSNotification *)notification;
+- (void) setAdinkra: (NSNotification *)notification;
+
+@end
+
+-[AdinkraDocument OK:]
+/*
+	switch ( [[adinkraType objectValue] intValue] ) {
+		case 0 :
+			theAdinkra = [Adinkra exteriorAdinkraWithN: N sender: self];
+			break;
+		case 1 :
+			theAdinkra = [Adinkra cliffordAdinkraWithN: N sender: self];
+			break;
+		
+		case 2 :
+			theAdinkra = [Adinkra irreducibleAdinkraWithN: N
+								 alternativeSpinStructure: NO
+												   sender: self];
+		//	theAdinkra = [Adinkra quotientAdinkraWithN: [NField intValue]
+		//						  commutingInvolutions: [Clifford basicCommutingInvolutionsWithN: [NField intValue]]
+		//										sender: self];
+			break;
+		default :
+			theAdinkra = nil;
+			break;
+	}
+*/
+	
+//	[adinkraString setStringValue: @"Drawing Adinkra"];
+//	[adinkraBox display];
+//	[adinkraView display];
+	
+//	[NSApp endSheet:adinkraSheet];
+//	[adinkraSheet orderOut: self];
+
+//	[[adinkraSheet contentView] setBoundsOrigin: NSMakePoint ( 0.0, 0.0 ) ];
+//	[adinkraSheet setFrame: oldFrame display: NO];
+
+//	[adinkraView setNeedsDisplay: YES];
+//	[self updateChangeCount: NSChangeDone];
+
+from AdinkraDocument
+/*
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
+{
+    [sheet orderOut:self];
+}
+*/
