@@ -607,8 +607,8 @@
 // JP - 2/26/11
 // Creates a new document, with the same Adinkra.
 - (IBAction)duplicateAdinkra:(id)sender {
-	NSError **err = nil;
-	AdinkraDocument *duplicate = [[ AdinkraDocument alloc ] initWithType:@"Adinkra" error:err ];
+	NSError *err = nil;
+	AdinkraDocument *duplicate = [[ AdinkraDocument alloc ] initWithType:@"Adinkra" error:&err ];
 	Adinkra *anAdinkra = [adinkraView adinkra];
 	
 	if ( !anAdinkra ) {
@@ -618,7 +618,7 @@
 	}
 	
 	[ duplicate makeWindowControllers ];
-	[ duplicate createAdinkraWithDictionary:[ self generateDictionaryFromAdinkra:anAdinkra ] error:err ];
+	[ duplicate createAdinkraWithDictionary:[ self generateDictionaryFromAdinkra:anAdinkra ] error:&err ];
 	
 	if ( err != nil) {
 		NSLog(@"Error: Failed to duplicate adinkra.\n%@", err);
