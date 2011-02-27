@@ -113,7 +113,19 @@
 		Adinkra *anAdinkra = [adinkraView adinkra];
 		
 		if ( anAdinkra ) {
-			NSMutableDictionary *theDictionary = [ self generateDictionaryFromAdinkra:anAdinkra ];
+			NSMutableDictionary *theDictionary = [[anAdinkra dictionary] mutableCopy];
+			[theDictionary setObject:[NSNumber numberWithInt: N] forKey:@"N" ];
+			[theDictionary setObject:[NSNumber numberWithBool: [dashedEdgesButton intValue]] forKey:@"drawDashedEdges"];
+			
+			{
+				NSMutableArray *showEdgeArray = [NSMutableArray arrayWithCapacity:32];
+				int i;
+	
+				for (i = 1; i <= 32; i++ )
+					[showEdgeArray addObject: [NSNumber numberWithBool: [[edgeMatrix cellWithTag:i] intValue]]];
+					
+				[theDictionary setObject: showEdgeArray forKey: @"showEdges"];
+			}
 			
 			BOOL success = [theDictionary writeToURL:absoluteURL atomically: YES];
 			if ( !success )
@@ -161,12 +173,6 @@
 {
 	NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfURL: absoluteURL];
 	
-	return [ self createAdinkraWithDictionary:dictionary error:outError ];
-}
-
-// JP - 2/27/2011
-// Migrated adinkra creation from 'readFromURL:ofType:error:' to support duplicating adinkras.
-- (BOOL)createAdinkraWithDictionary:(NSDictionary *)dictionary error:(NSError **)outError {
 	if ( dictionary ) {
 		theAdinkra = [[Adinkra adinkraWithDictionary: dictionary] retain];
 		
@@ -185,7 +191,7 @@
 			drawDashedEdges = [[dictionary objectForKey: @"drawDashedEdges"] boolValue];
 		else
 			drawDashedEdges = (N > 8) ? NO : YES;
-		
+
 		if ( theAdinkra ) {
 			if ( adinkraView )
 				[self awakeFromNib]; // update values in adinkraView
@@ -193,37 +199,17 @@
 		}
 		else {
 			*outError = [NSError errorWithDomain: @"com.cohomology.Adinkramat.ErrorDomain"
-											code: 0
-										userInfo: nil];
+								 code: 0
+								 userInfo: nil];
 			return NO;
 		}
 	}
 	else {
 		*outError = [NSError errorWithDomain: @"com.cohomology.Adinkramat.ErrorDomain"
-										code: 0
-									userInfo: nil];
+							 code: 0
+							 userInfo: nil];
 		return NO;
 	}
-}
-
-// JP - 2/27/2011
-// Migrated dictionary creation from 'writeToURL:ofType:error:' to support duplicating adinkras.
-- (NSMutableDictionary *) generateDictionaryFromAdinkra:(Adinkra *)anAdinkra {
-	NSMutableDictionary *theDictionary = [[anAdinkra dictionary] mutableCopy];
-	[theDictionary setObject:[NSNumber numberWithInt: N] forKey:@"N" ];
-	[theDictionary setObject:[NSNumber numberWithBool: [dashedEdgesButton intValue]] forKey:@"drawDashedEdges"];
-	
-	{
-		NSMutableArray *showEdgeArray = [NSMutableArray arrayWithCapacity:32];
-		int i;
-		
-		for (i = 1; i <= 32; i++ )
-			[showEdgeArray addObject: [NSNumber numberWithBool: [[edgeMatrix cellWithTag:i] intValue]]];
-		
-		[theDictionary setObject: showEdgeArray forKey: @"showEdges"];
-	}
-	
-	return theDictionary;
 }
 
 - (NSPrintOperation *)printOperationWithSettings:(NSDictionary *)printSettings error:(NSError **)outError
@@ -600,36 +586,6 @@
 	if ( N > 8 )
 		[adinkraView setFillWindow: YES];
 	[self resizeWindowToAdinkra];
-}
-
-#pragma mark Operation Methods
-
-// JP - 2/26/11
-// Creates a new document, with the same Adinkra.
-- (IBAction)duplicateAdinkra:(id)sender {
-	NSError *err = nil;
-	AdinkraDocument *duplicate = [[ AdinkraDocument alloc ] initWithType:@"Adinkra" error:&err ];
-	Adinkra *anAdinkra = [adinkraView adinkra];
-	
-	if ( !anAdinkra ) {
-		NSLog(@"Failed to duplicate adinkra.");
-		[ duplicate release ];
-		return;
-	}
-	
-	[ duplicate makeWindowControllers ];
-	[ duplicate createAdinkraWithDictionary:[ self generateDictionaryFromAdinkra:anAdinkra ] error:&err ];
-	
-	if ( err != nil) {
-		NSLog(@"Error: Failed to duplicate adinkra.\n%@", err);
-		[ duplicate release ];
-		return;
-	}
-	
-	[[ NSDocumentController sharedDocumentController ] addDocument: duplicate ];
-	
-	[ duplicate showWindows ];
-	[ duplicate release ];
 }
 
 @end
