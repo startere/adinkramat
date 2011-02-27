@@ -629,6 +629,7 @@
 	[[ NSDocumentController sharedDocumentController ] addDocument: duplicate ];
 	
 	[ duplicate showWindows ];
+	[ duplicate release ];
 }
 
 @end
