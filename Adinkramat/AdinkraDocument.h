@@ -77,6 +77,8 @@
 //
 
 - (void)resizeWindowToAdinkra;
+- (BOOL)createAdinkraWithDictionary:(NSDictionary *)dictionary error:(NSError **)outError;
+- (NSMutableDictionary *) generateDictionaryFromAdinkra:(Adinkra *)anAdinkra;
 
 //
 // AdinkraDocument Thread Methods
@@ -87,5 +89,9 @@
 
 - (void) showProgress: (NSDictionary *)userInfo;
 - (void) setAdinkra: (Adinkra *)anAdinkra;
+
+// Operation methods
+- (IBAction)duplicateAdinkra:(id)sender;
+
 
 @end
