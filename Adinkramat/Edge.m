@@ -62,6 +62,12 @@
 	return isNegative;
 }
 
+// JP - 3/2/11
+// Checks if edge is hidden.
+- (BOOL)isHidden {
+	return [ from isHidden ] || [ to isHidden ];
+}
+
 - (void)setNegative: (BOOL)newNegative
 {
 	isNegative = newNegative;

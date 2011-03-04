@@ -80,10 +80,8 @@
 	while ( tag = [tagEnumerator nextObject] ) {
 		NSDictionary *vertex = [vertexDictionary objectForKey: tag];
 		
-		[theAdinkra addVertex: [Vertex vertexWithDegree: [[vertex objectForKey: @"degree"] intValue]
-								 isFermion: [[vertex objectForKey: @"isFermion"] intValue] // formerly boolValue
-								 horizontal: [[vertex objectForKey: @"horizontal" ] intValue] ]
-			  forTag: tag ];
+		[theAdinkra addVertex: [Vertex vertexForDictionary:vertex ] // JP - 3/2/11
+					   forTag: tag ];
 	}
 	
 	NSEnumerator *edgeEnumerator = [edgeArray objectEnumerator];

@@ -11,7 +11,7 @@
 			<string key="NS.object.0">732</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="935"/>
+			<integer value="830"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -496,6 +496,15 @@
 									<string key="NSTitle">Change Vertex Signs</string>
 									<string key="NSKeyEquiv">V</string>
 									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="821341737"/>
+									<reference key="NSMixedImage" ref="930678765"/>
+								</object>
+								<object class="NSMenuItem" id="275885614">
+									<reference key="NSMenu" ref="164247108"/>
+									<string key="NSTitle">Change Vertex Visibility</string>
+									<string key="NSKeyEquiv">v</string>
+									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="821341737"/>
 									<reference key="NSMixedImage" ref="930678765"/>
@@ -3609,6 +3618,14 @@
 					</object>
 					<int key="connectionID">944</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleVertexVisibility:</string>
+						<reference key="source" ref="245079337"/>
+						<reference key="destination" ref="275885614"/>
+					</object>
+					<int key="connectionID">946</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -4022,6 +4039,7 @@
 							<reference ref="864037319"/>
 							<reference ref="930183274"/>
 							<reference ref="679557160"/>
+							<reference ref="275885614"/>
 						</array>
 						<reference key="parent" ref="528184175"/>
 					</object>
@@ -4813,9 +4831,15 @@
 						<reference key="object" ref="800344752"/>
 						<reference key="parent" ref="0"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">945</int>
+						<reference key="object" ref="275885614"/>
+						<reference key="parent" ref="164247108"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
+				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="103.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="103.ImportedFromIB2"/>
 				<string key="106.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5052,7 +5076,7 @@
 				<boolean value="YES" key="829.ImportedFromIB2"/>
 				<string key="83.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="83.ImportedFromIB2"/>
-				<string key="830.IBEditorWindowLastContentRect">{{538, 572}, {230, 173}}</string>
+				<string key="830.IBEditorWindowLastContentRect">{{538, 552}, {252, 193}}</string>
 				<string key="830.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="830.ImportedFromIB2"/>
 				<string key="835.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5149,6 +5173,17 @@
 				<boolean value="YES" key="92.ImportedFromIB2"/>
 				<string key="921.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="921.ImportedFromIB2"/>
+				<string key="923.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="924.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="925.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="926.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="927.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="928.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="929.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="930.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="931.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="932.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="933.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="934.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="934.ImportedFromIB2"/>
 				<string key="935.IBEditorWindowLastContentRect">{{609, 672}, {145, 73}}</string>
@@ -5160,13 +5195,13 @@
 				<boolean value="YES" key="938.ImportedFromIB2"/>
 				<string key="939.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="939.ImportedFromIB2"/>
-				<string key="943.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="945.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">944</int>
+			<int key="maxID">946</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5241,6 +5276,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">FirstResponder</string>
+					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="balanceHorizontally:">id</string>
 						<string key="changeVertexSigns:">id</string>
@@ -5252,6 +5288,7 @@
 						<string key="makeValise:">id</string>
 						<string key="scaleToWindow:">id</string>
 						<string key="toggleEdgeDrawer:">id</string>
+						<string key="toggleVertexVisibility:">id</string>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>

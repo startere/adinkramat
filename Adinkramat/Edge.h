@@ -33,6 +33,7 @@
 - (Vertex *)from;
 - (Vertex *)to;
 - (BOOL)isNegative;
+- (BOOL)isHidden;
 - (void)setNegative: (BOOL)newNegative;
 - (int)Q;
 
