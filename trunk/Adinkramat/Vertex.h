@@ -10,6 +10,7 @@
 
 @interface Vertex : NSObject {
 	BOOL			isFermion;
+	BOOL			isHidden;
 	int				degree;
 	NSMutableArray	*edges;
 	
@@ -20,10 +21,12 @@
 // Class methods
 + (Vertex *)vertexWithDegree: (int)degree isFermion: (BOOL)isFermion;
 + (Vertex *)vertexWithDegree: (int)degree isFermion: (BOOL)isFermion horizontal: (int)horizontal;
++ (Vertex *)vertexForDictionary:(NSDictionary *)dictionary;
 
 // Initialization methods
 - (Vertex *)initWithDegree: (int)degree isFermion: (BOOL)isFermion;
 - (Vertex *)initWithDegree: (int)degree isFermion: (BOOL)isFermion horizontal: (int)horizontal;
+- (Vertex *)initWithDegree: (int)degree isFermion: (BOOL)isFermion horizontal: (int)horizontal hidden:(BOOL) isHidden;
 
 // Accessor methods
 - (void)setDegree: (int)newDegree;
@@ -38,7 +41,11 @@
 - (BOOL)isFermion;
 - (void)setFermion: (BOOL)newFermion;
 
+- (BOOL)isHidden;
+- (void)setHidden:(BOOL)newHidden;
+
 // Other methods
+- (void)toggleVisibility;
 - (NSDictionary *)dictionary;
 - (void)changeSign;
 - (BOOL)isSource;

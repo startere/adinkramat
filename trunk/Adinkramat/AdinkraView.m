@@ -416,6 +416,15 @@ if ( !drawFast ) {
 	[self setNeedsDisplay: YES];
 }
 
+// JP - 3/2/11
+// Toggles vertex visibility.
+- (IBAction)toggleVertexVisibility:(id)sender
+{
+	[self registerUndoActionName: @"Change Vertex Visibility"];//Hide/Show?
+	[selectedVertices makeObjectsPerformSelector: @selector(toggleVisibility)];
+	[self setNeedsDisplay: YES];
+}
+
 - (IBAction)makeValise:(id)sender
 {
 	[self registerUndoActionName: @"Pack into Valise" ];

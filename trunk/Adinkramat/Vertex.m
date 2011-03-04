@@ -38,6 +38,18 @@
 	return [[[Vertex alloc] initWithDegree: degree isFermion: isFermion horizontal: horizontal] autorelease];
 }
 
+// JP - 3/2/11
+// Creates vertex from dictionary. If isHidden is not in dictionary, isHidden will default to NO.
++ (Vertex *)vertexForDictionary:(NSDictionary *)dictionary {
+	//id temp = [dictionary objectForKey: @"isHidden"];
+	//BOOL newHidden = (temp) ? [ temp intValue ] : NO;
+	
+	return [[[ Vertex alloc ] initWithDegree:[[dictionary objectForKey: @"degree"] intValue]
+								   isFermion:[[dictionary objectForKey: @"isFermion"] intValue]
+								  horizontal:[[dictionary objectForKey: @"horizontal" ] intValue]
+									  hidden:[[dictionary objectForKey: @"isHidden"] boolValue ]] autorelease ];
+}
+					  
 #pragma mark Vertex Initializers
 
 - (Vertex *)initWithDegree: (int)newDegree isFermion: (BOOL)newFermion // tag: (id)tag
@@ -58,9 +70,16 @@
 
 - (Vertex *)initWithDegree: (int)newDegree isFermion: (BOOL)newFermion horizontal: (int)newHorizontal
 {
+	return [ self initWithDegree:newDegree isFermion:newFermion horizontal:newHorizontal hidden:NO ];// JP - 3/2/11
+}
+
+// JP - 3/2/11
+// Support for hidden vertices.
+- (Vertex *)initWithDegree: (int)newDegree isFermion: (BOOL)newFermion horizontal: (int)newHorizontal hidden:(BOOL) newHidden {
 	if ( self = [super init] ) {
 		degree = newDegree;
 		isFermion = newFermion;
+		isHidden = newHidden;
 		horizontal = newHorizontal;
 		edges = [[NSMutableArray alloc] init];
 	}
@@ -109,7 +128,23 @@
 	isFermion = newFermion;
 }
 
+// JP - 3/2/11
+// Support for hidden vertices.
+- (BOOL)isHidden {
+	return isHidden;
+}
+
+- (void)setHidden:(BOOL)newHidden {
+	isHidden = newHidden;
+}
+
 #pragma mark Vertex Methods
+
+// JP - 3/2/11
+// Toggles a vertex's visibility.
+- (void)toggleVisibility {
+	isHidden = !isHidden;
+}
 
 - (void)changeSign
 {
@@ -150,6 +185,7 @@
 {
 	return [NSDictionary dictionaryWithObjectsAndKeys:
 				[NSNumber numberWithBool: isFermion], @"isFermion",
+				[NSNumber numberWithBool: isHidden], @"isHidden", // JP - 3/2/11
 				[NSNumber numberWithInt: degree], @"degree",
 				[NSNumber numberWithInt: horizontal], @"horizontal",
 				nil ];
