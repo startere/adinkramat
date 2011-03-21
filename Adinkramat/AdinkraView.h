@@ -8,6 +8,7 @@
 	BOOL	drawDashedEdges;
 	
 	BOOL	fillWindow;
+	BOOL	showHiddenVertices;
 	
 	NSMutableSet	*selectedVertices;
 	

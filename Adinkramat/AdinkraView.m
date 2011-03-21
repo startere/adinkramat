@@ -68,6 +68,7 @@
 		draggingVertex = nil;
 		
 		fillWindow = false;
+        showHiddenVertices = YES;
 		
 		drawDashedEdges = YES;
 		
@@ -423,6 +424,13 @@ if ( !drawFast ) {
 	[self registerUndoActionName: @"Change Vertex Visibility"];//Hide/Show?
 	[selectedVertices makeObjectsPerformSelector: @selector(toggleVisibility)];
 	[self setNeedsDisplay: YES];
+}
+
+// JP - 3/19/11
+// Support to toggle hidden vertices visibilty.
+-(IBAction) toggleHiddenVertexVisibility:(id)sender {
+    showHiddenVertices = !showHiddenVertices;
+    [self setNeedsDisplay: YES];
 }
 
 - (IBAction)makeValise:(id)sender

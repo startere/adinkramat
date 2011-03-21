@@ -41,9 +41,6 @@
 // JP - 3/2/11
 // Creates vertex from dictionary. If isHidden is not in dictionary, isHidden will default to NO.
 + (Vertex *)vertexForDictionary:(NSDictionary *)dictionary {
-	//id temp = [dictionary objectForKey: @"isHidden"];
-	//BOOL newHidden = (temp) ? [ temp intValue ] : NO;
-	
 	return [[[ Vertex alloc ] initWithDegree:[[dictionary objectForKey: @"degree"] intValue]
 								   isFermion:[[dictionary objectForKey: @"isFermion"] intValue]
 								  horizontal:[[dictionary objectForKey: @"horizontal" ] intValue]
