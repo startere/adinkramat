@@ -17,7 +17,7 @@
         dictionaryWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 	
     [defaults registerDefaults:appDefaults];
-	[[NSUserDefaultsController sharedUserDefaultsController] setInitialValues:[ appDefaults retain ] ];
+	[[NSUserDefaultsController sharedUserDefaultsController] setInitialValues:appDefaults ];
 }
 
 - (void)dealloc
