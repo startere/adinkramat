@@ -32,12 +32,6 @@
 	[theAdinkra release];	
 	[edgeSet release];
 
-	[solidEdgePaths release];
-	[dashedEdgePaths release];
-	[blackVertexFillPath release];
-	[whiteVertexFillPath release];
-	[vertexStrokePath release];
-
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
 	[selectedVertices release];
@@ -72,13 +66,6 @@
 		
 		drawDashedEdges = YES;
 		
-		solidEdgePaths = nil;
-		dashedEdgePaths = nil;
-		
-		blackVertexFillPath = nil;
-		whiteVertexFillPath = nil;
-		vertexStrokePath = nil;
-		
 		selectedVertices = [[NSMutableSet setWithCapacity: 1] retain];
 			
 		NSUserDefaultsController *theController = [NSUserDefaultsController sharedUserDefaultsController];
@@ -93,12 +80,79 @@
 
 - (void)drawRect:(NSRect)rect
 {		
-	BOOL shouldDrawFast = false;
-//	//( draggingVertex && ( [theAdinkra vertexCount] >= 16 ) ) ||
+	int i;
+    BOOL shouldDrawFast = false;
+/*	( draggingVertex && ( [theAdinkra vertexCount] >= 16 ) ) ||
 						  ( fillWindow && ( [theAdinkra vertexCount] >= 128 ) ) ||
-						  ( !fillWindow && ( [theAdinkra vertexCount] >= 1024 ) );
-
-	[self cachePaths];
+						  ( !fillWindow && ( [theAdinkra vertexCount] >= 1024 ) );*/
+    
+	// Cache paths
+	NSMutableArray *solidEdgePaths = [NSMutableArray arrayWithCapacity:32];
+	NSMutableArray *dashedEdgePaths = [NSMutableArray arrayWithCapacity:32];
+	NSMutableArray *transparentSolidEdgePaths = [NSMutableArray arrayWithCapacity:32];
+	NSMutableArray *transparentDashedEdgePaths = [NSMutableArray arrayWithCapacity:32];
+	
+	for ( i = 0; i < 32; i++ ) {
+		[solidEdgePaths addObject: [NSBezierPath bezierPath] ];
+		[dashedEdgePaths addObject: [NSBezierPath bezierPath] ];
+		[transparentSolidEdgePaths addObject: [NSBezierPath bezierPath] ];
+		[transparentDashedEdgePaths addObject: [NSBezierPath bezierPath] ];
+	}
+	
+	NSBezierPath *blackVertexFillPath = [NSBezierPath bezierPath];
+	NSBezierPath *whiteVertexFillPath = [NSBezierPath bezierPath];
+	NSBezierPath *vertexStrokePath = [NSBezierPath bezierPath];
+	NSBezierPath *transparentBlackVertexFillPath = [NSBezierPath bezierPath];
+	NSBezierPath *transparentWhiteVertexFillPath = [NSBezierPath bezierPath];
+	NSBezierPath *transparentVertexStrokePath = [NSBezierPath bezierPath];
+	
+    for ( Edge *anEdge in [ theAdinkra edges ]) {
+        NSBezierPath *edgeQPath;
+        
+        if ( [ anEdge isHidden ]) {
+            if ( showHiddenVertices) {
+                // Draw transparent
+                edgeQPath = [ ( [anEdge isNegative] ? transparentDashedEdgePaths : transparentSolidEdgePaths ) objectAtIndex: ( [anEdge Q] - 1 ) ];
+            }
+            else
+                continue;
+        }
+        else {
+            // Draw opaque
+            edgeQPath = [ ( [anEdge isNegative] ? dashedEdgePaths : solidEdgePaths ) objectAtIndex: ( [anEdge Q] - 1 ) ];
+        }
+		
+        [edgeQPath moveToPoint: [[anEdge from] location]];
+		[edgeQPath lineToPoint: [[anEdge to] location]];
+	}
+    
+	for ( Vertex *aVertex in [ theAdinkra vertices ] ) {
+        NSBezierPath *vertexFillPath;
+        NSBezierPath *strokePath;
+        
+        if ( [ aVertex isHidden ]) {
+            if ( showHiddenVertices) {
+                // Draw transparent
+                vertexFillPath = [aVertex isFermion] ? transparentBlackVertexFillPath : transparentWhiteVertexFillPath;
+                
+                strokePath = transparentVertexStrokePath;
+            }
+            else
+                continue;
+        }
+        else {
+            // Draw opaque
+            vertexFillPath = [aVertex isFermion] ? blackVertexFillPath : whiteVertexFillPath;
+            
+            strokePath = vertexStrokePath;
+        }
+        
+        NSPoint location = [aVertex location];
+        NSRect	vertexRect = NSMakeRect ( location.x - vertexRadius, location.y - vertexRadius, 2 * vertexRadius, 2 * vertexRadius );
+        
+        [vertexFillPath appendBezierPathWithOvalInRect:vertexRect];
+        [strokePath appendBezierPathWithOvalInRect:vertexRect];
+	}
 
 	float array[2];
 	array[0] = 3*edgeThickness;
@@ -119,7 +173,6 @@
 	if ( drawShadow )
 		[theShadow set];
 
-	int i;
 	for ( i = 1; i <= 32; i++ )
 		if ( [edgeSet containsObject: [NSNumber numberWithInt: i ] ] ) {
 			NSColor *theColor = [[NSUserDefaults standardUserDefaults] colorForKey: [NSString stringWithFormat: @"Q%iColor", i] ];
@@ -134,7 +187,20 @@
 			[ aPath setLineWidth: edgeThickness ];
 			[ aPath stroke ];
 			
-			aPath = [dashedEdgePaths objectAtIndex: (i-1) ];
+			aPath = [ dashedEdgePaths objectAtIndex: (i-1) ];
+			[ aPath setLineCapStyle: shouldDrawFast ? NSSquareLineCapStyle : NSRoundLineCapStyle ];
+			[ aPath setLineWidth: edgeThickness ];
+			[ aPath setLineDash: array count: drawDashedEdges ? 2 : 0 phase: 0.0];
+			[ aPath stroke ];
+            
+            [[ theColor colorWithAlphaComponent:ALPHA ] set ];
+            
+			aPath = [ transparentSolidEdgePaths objectAtIndex: (i-1) ];
+			[ aPath setLineCapStyle: shouldDrawFast ? NSSquareLineCapStyle : NSRoundLineCapStyle ];
+			[ aPath setLineWidth: edgeThickness ];
+			[ aPath stroke ];
+			
+			aPath = [ transparentDashedEdgePaths objectAtIndex: (i-1) ];
 			[ aPath setLineCapStyle: shouldDrawFast ? NSSquareLineCapStyle : NSRoundLineCapStyle ];
 			[ aPath setLineWidth: edgeThickness ];
 			[ aPath setLineDash: array count: drawDashedEdges ? 2 : 0 phase: 0.0];
@@ -145,6 +211,14 @@
 	if ( drawShadow )
 		[theShadow set];
 	
+	[[[NSColor whiteColor] colorWithAlphaComponent:ALPHA] set];
+	if ( ( vertexRadius >= 1.0 ) )
+		[ transparentWhiteVertexFillPath fill ];
+	
+	[[[NSColor blackColor] colorWithAlphaComponent:ALPHA] set];
+	if ( ( vertexRadius >= 1.0 ) )
+		[ transparentBlackVertexFillPath fill ];
+    
 	[[NSColor whiteColor] set];
 	if ( ( vertexRadius >= 1.0 ) )
 		[ whiteVertexFillPath fill ];
@@ -152,20 +226,23 @@
 	[[NSColor blackColor] set];
 	if ( ( vertexRadius >= 1.0 ) )
 		[ blackVertexFillPath fill ];
-	
+    
 	[NSGraphicsContext restoreGraphicsState];
 	[theShadow release]; 
-	 
+    
 	[ vertexStrokePath setLineWidth: edgeThickness ];
 	if ( ( vertexRadius + edgeThickness / 2.0 >= 1.0 ) )
 		[ vertexStrokePath stroke ];
+    
+    [[[NSColor blackColor] colorWithAlphaComponent:ALPHA] set];
+	[ transparentVertexStrokePath setLineWidth: edgeThickness ];
+	if ( ( vertexRadius + edgeThickness / 2.0 >= 1.0 ) )
+		[ transparentVertexStrokePath stroke ];
 	
     if ( [NSGraphicsContext currentContextDrawingToScreen] ) {
 		NSBezierPath *selectedVerticesPath = [NSBezierPath bezierPath];
 		
-		NSEnumerator *vertexEnumerator = [selectedVertices objectEnumerator];
-		Vertex *aVertex;
-		while ( aVertex = [vertexEnumerator nextObject] ) {
+		for ( Vertex *aVertex in selectedVertices ) {
 			NSPoint location = [aVertex location];
 			NSRect	vertexRect = NSMakeRect ( location.x - vertexRadius, location.y - vertexRadius, 2 * vertexRadius, 2 * vertexRadius );
 			if ( edgeThickness > 4.0 )
@@ -655,49 +732,6 @@ if ( !drawFast ) {
 }
 
 #pragma mark AdinkraView Methods
-
-- (void)cachePaths
-{
-	[solidEdgePaths release];
-	[dashedEdgePaths release];
-	[blackVertexFillPath release];
-	[whiteVertexFillPath release];
-	[vertexStrokePath release];
-
-	solidEdgePaths = [ [NSMutableArray arrayWithCapacity:32] retain ];
-	dashedEdgePaths = [ [NSMutableArray arrayWithCapacity:32] retain ];
-	
-	int i;
-	
-	for ( i = 0; i < 32; i++ ) {
-		[solidEdgePaths addObject: [NSBezierPath bezierPath] ];
-		[dashedEdgePaths addObject: [NSBezierPath bezierPath] ];
-	}
-	
-	blackVertexFillPath = [ [NSBezierPath bezierPath] retain ];
-	whiteVertexFillPath = [ [NSBezierPath bezierPath] retain ];
-	vertexStrokePath = [ [NSBezierPath bezierPath] retain];
-	
-	NSEnumerator *edgeEnumerator = [theAdinkra edgeEnumerator];
-	Edge *anEdge;
-	while ( anEdge = [edgeEnumerator nextObject] ) {
-		NSBezierPath *edgeQPath = [ ( [anEdge isNegative] ? dashedEdgePaths : solidEdgePaths ) objectAtIndex: ( [anEdge Q] - 1 ) ];
-		[edgeQPath moveToPoint: [[anEdge from] location]];
-		[edgeQPath lineToPoint: [[anEdge to] location]];
-	}
-
-	NSEnumerator *vertexEnumerator = [theAdinkra vertexEnumerator];
-	Vertex *aVertex;
-	while ( aVertex = [vertexEnumerator nextObject] ) {
-		NSPoint location = [aVertex location];
-		NSRect	vertexRect = NSMakeRect ( location.x - vertexRadius, location.y - vertexRadius, 2 * vertexRadius, 2 * vertexRadius );
-
-		NSBezierPath *vertexFillPath = [aVertex isFermion] ? blackVertexFillPath : whiteVertexFillPath;
-		
-		[vertexFillPath appendBezierPathWithOvalInRect:vertexRect];
-		[vertexStrokePath appendBezierPathWithOvalInRect:vertexRect];
-	}
-}
 
 - (void)locateVerticesWithAnimation: (BOOL)animate
 {	
