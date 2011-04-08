@@ -1,6 +1,8 @@
 #import <Cocoa/Cocoa.h>
 #import "Adinkra.h"
 
+#define ALPHA 0.3
+
 @interface AdinkraView : NSView {
 
     Adinkra *theAdinkra;
@@ -24,13 +26,6 @@
 	float vertexRadius;
 	float vertexSpacing;
 	BOOL drawShadow;
-	
-	// Cached NSBezierPaths
-	NSMutableArray *solidEdgePaths;
-	NSMutableArray *dashedEdgePaths;
-	NSBezierPath *blackVertexFillPath;
-	NSBezierPath *whiteVertexFillPath;
-	NSBezierPath *vertexStrokePath;
 }
 
 //

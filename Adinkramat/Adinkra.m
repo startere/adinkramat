@@ -75,9 +75,7 @@
 	NSDictionary *vertexDictionary = [dictionary objectForKey: @"vertices"];
 	NSArray *edgeArray = [dictionary objectForKey: @"edges"];
 	
-	NSEnumerator *tagEnumerator = [vertexDictionary keyEnumerator];
-	id tag;
-	while ( tag = [tagEnumerator nextObject] ) {
+	for ( id tag in vertexDictionary) {
 		NSDictionary *vertex = [vertexDictionary objectForKey: tag];
 		
 		[theAdinkra addVertex: [Vertex vertexForDictionary:vertex ] // JP - 3/2/11
@@ -114,6 +112,22 @@
 	return [edges objectEnumerator];
 }
 
+#pragma mark Getters
+
+// JP - 4/7/2011
+// Added getters to support fast enumeration, replacing edgeEnumerator.
+- (NSArray *)tags {
+    return [[ vertices allKeys ] sortedArrayUsingSelector: @selector(compare:) ];
+}
+
+- (NSArray *)vertices {
+    return [ vertices allValues ];
+}
+
+- (NSArray *)edges {
+    return edges;
+}
+
 #pragma mark Adinkra Counters
 
 - (long)vertexCount
@@ -130,9 +144,7 @@
 
 - (id)tagForVertex: (Vertex *)theVertex
 {
-	NSEnumerator *tagEnumerator = [self tagEnumerator];
-	id tag;
-	while ( tag = [tagEnumerator nextObject] ) {
+	for ( id tag in [ self tags ]) {
 		if ( [self vertexWithTag: tag] == theVertex )
 			return tag;
 	}
@@ -142,15 +154,12 @@
 - (NSDictionary *)dictionary
 {
 	NSMutableDictionary *vertexDictionary = [NSMutableDictionary dictionaryWithCapacity:[vertices count]];
-	NSEnumerator *tagEnumerator = [self tagEnumerator];
-	id tag;
-	while ( tag = [tagEnumerator nextObject] )
+    
+    for ( id tag in [ self tags ])
 		[vertexDictionary setObject: [[self vertexWithTag: tag] dictionary] forKey: [tag description]];
 		
 	NSMutableArray *edgeArray = [NSMutableArray arrayWithCapacity:[edges count]];
-	NSEnumerator *edgeEnumerator = [self edgeEnumerator];
-	Edge *edge;
-	while ( edge = [edgeEnumerator nextObject] )
+	for ( Edge *edge in [ self edges ])
 		[edgeArray addObject: [edge dictionaryWithAdinkra: self] ];
 		
 	return [ NSDictionary dictionaryWithObjectsAndKeys: vertexDictionary, @"vertices", edgeArray, @"edges", nil ];
@@ -162,9 +171,7 @@
 	
 	NSMutableDictionary *maxWidth = [NSMutableDictionary dictionaryWithCapacity:0];
 	
-	NSEnumerator *tagEnumerator = [ self tagEnumerator ];
-	id	tag;		
-	while ( tag = [tagEnumerator nextObject] ) {
+	for ( id tag in [ self tags ]) {
 		Vertex *vertex = [vertices objectForKey:tag];
 		
 		int	degree = [vertex degree];
@@ -186,10 +193,8 @@
 		if ( horizontal > width )
 			width = horizontal;
 	}
-		
-	NSEnumerator *vertexEnumerator = [vertices objectEnumerator];
-	Vertex *vertex;
-	while ( vertex = [vertexEnumerator nextObject] ) {
+    
+	for ( Vertex *vertex in [ self vertices ]) {
 		int rowWidth = [ [maxWidth objectForKey: [NSNumber numberWithInt:[vertex degree] ] ] intValue ];
 		
 		[vertex setHorizontal: width - rowWidth + 2 * [vertex horizontal] ];
@@ -205,9 +210,7 @@
 	*maxHorizontal = -10000;
 	*minHorizontal = +10000;
 	
-	NSEnumerator *vertexEnumerator = [ self vertexEnumerator ];
-	Vertex *oneVertex;
-	while ( oneVertex = [vertexEnumerator nextObject] ) {
+	for ( Vertex *oneVertex in [ self vertices ]) {
 		int degree = [oneVertex degree];
 		int	horizontal = [oneVertex horizontal];
 		
@@ -264,9 +267,7 @@
 
 - (Adinkra *)makeTwoDegreesWithLowestDegreeFermions: (BOOL)lowestDegreeFermions
 {
-	NSEnumerator *enumerator = [vertices objectEnumerator];
-	Vertex  *vertex;
-	while ( vertex = [enumerator nextObject] ) {
+    for ( Vertex  *vertex in [ self vertices ]) {
 		if ( [vertex degree] % 2 )
 			[vertex setDegree: lowestDegreeFermions ? -1 : 1];
 		else
@@ -277,9 +278,7 @@
 
 - (Adinkra *)edgeFlip: (int)Q
 {
-	NSEnumerator *enumerator = [edges objectEnumerator];
-	Edge  *edge;
-	while ( edge = [enumerator nextObject] )
+	for ( Edge *edge in [ self edges ])
 		if ( Q == 0 || [edge Q] == Q )
 			[edge setNegative: ![edge isNegative] ];
 	
@@ -288,9 +287,7 @@
 
 - (Adinkra *)kleinFlip
 {
-	NSEnumerator *enumerator = [vertices objectEnumerator];
-	Vertex  *vertex;
-	while ( vertex = [enumerator nextObject] )
+    for ( Vertex  *vertex in [ self vertices ])
 		[vertex setFermion: ![vertex isFermion] ];
 	
 	return self;
@@ -298,9 +295,7 @@
 
 - (Adinkra *)degreeFlip
 {
-	NSEnumerator *enumerator = [vertices objectEnumerator];
-	Vertex  *vertex;
-	while ( vertex = [enumerator nextObject] )
+    for ( Vertex  *vertex in [ self vertices ])
 		[vertex setDegree: -[vertex degree] ];
 	
 	return self;
@@ -338,11 +333,7 @@
 
 - (Adinkra *)makeSourceVertices: (NSSet *)sourceVertices
 {
-	NSEnumerator *vertexEnumerator;
-	Vertex *aVertex;
-	
-	vertexEnumerator = [self vertexEnumerator];
-	while ( aVertex = [vertexEnumerator nextObject] )
+	for ( Vertex *aVertex in [ self vertices ])
 		if ( ![sourceVertices containsObject: aVertex] )
 			[aVertex setDegree: -1000];
 		
@@ -350,8 +341,7 @@
 	
 	while ( !done ) {
 		BOOL changed = false;
-		vertexEnumerator = [self vertexEnumerator];
-		while ( aVertex = [vertexEnumerator nextObject] ) {
+        for ( Vertex *aVertex in [ self vertices ]) {
 			if ( [aVertex degree] != -1000 ) {
 				int Q;
 				for ( Q = 1; Q <= 32; Q++ ) {

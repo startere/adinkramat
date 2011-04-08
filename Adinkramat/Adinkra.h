@@ -25,6 +25,11 @@
 - (Adinkra *)initWithAdinkra: (Adinkra *)anAdinkra;
 - (Adinkra *)initWithDictionary: (NSDictionary *)dictionary;
 
+// Getters
+- (NSArray *)tags;
+- (NSArray *)vertices;
+- (NSArray *)edges;
+
 // Other methods
 - (long)vertexCount;
 - (long)edgeCount;
@@ -33,9 +38,9 @@
 - (NSDictionary *)dictionary;
 - (void)maxDegree: (int *)max minDegree: (int *)min maxHorizontal: (int *)maxHorizontal minHorizontal: (int *)minHorizontal;
 - (Vertex *)vertexWithTag: (id)tag;
-- (NSEnumerator *)tagEnumerator;	
-- (NSEnumerator *)vertexEnumerator;
-- (NSEnumerator *)edgeEnumerator;
+- (NSEnumerator *)tagEnumerator __attribute__((deprecated));	
+- (NSEnumerator *)vertexEnumerator __attribute__((deprecated));
+- (NSEnumerator *)edgeEnumerator __attribute__((deprecated));
 
 - (Adinkra *)setHorizontal;
 - (Adinkra *)makeTwoDegreesWithLowestDegreeFermions: (BOOL)lowestDegreeFermions;
