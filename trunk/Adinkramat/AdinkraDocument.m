@@ -223,7 +223,7 @@
 		[theDictionary setObject: showEdgeArray forKey: @"showEdges"];
 	}
 	
-	return theDictionary;
+	return [ theDictionary autorelease ];
 }
 
 - (NSPrintOperation *)printOperationWithSettings:(NSDictionary *)printSettings error:(NSError **)outError

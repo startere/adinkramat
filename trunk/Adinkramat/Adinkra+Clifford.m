@@ -183,9 +183,7 @@
 	
 	[sender setProgressValue: value maxValue: max message: @"Adding edges"];
 	
-	NSEnumerator *tagEnumerator = [theAdinkra tagEnumerator];
-	Clifford *oneTag;	
-	while ( oneTag = [tagEnumerator nextObject] ) {
+	for ( Clifford *oneTag in [ theAdinkra tags ]) {
 		Vertex *aVertex = [theAdinkra vertexWithTag: oneTag];
 		
 		if ( !(++value & 0x00007fL ) )
@@ -330,13 +328,8 @@
 		minusGamma[Q] = [gamma[Q] negative];
 	}
 
-	NSEnumerator *tagEnumerator = [theAdinkra tagEnumerator];
-	id theTag;
 	Vertex *theVertex;
-	
-	tagEnumerator = [ theAdinkra tagEnumerator ];
-	
-	while ( theTag = [tagEnumerator nextObject] ) {
+	for ( id theTag in [ theAdinkra tags ]) {
 			
 		if ( !(++value & 0x000000fL ) )
 			[sender setProgressValue: value maxValue: max message: @"Adding edges"];
@@ -433,10 +426,7 @@
 	
 	[sender setProgressValue: value maxValue: max message: @"Adding edges"];
 	
-	NSEnumerator *tagEnumerator = [theAdinkra tagEnumerator];
-	id theTag;
-	tagEnumerator = [ theAdinkra tagEnumerator ];
-	while ( theTag = [tagEnumerator nextObject] ) {
+	for ( id theTag in [ theAdinkra tags ]) {
 		Vertex *theVertex = [theAdinkra vertexWithTag: theTag];
 		
 		if ( !(++value & 0x000001fL ) )
@@ -486,10 +476,7 @@
 	
 	[sender setProgressValue: value maxValue: max message: @"Adding edges"];
 	
-	NSEnumerator *tagEnumerator = [theAdinkra tagEnumerator];
-	id theTag;
-	tagEnumerator = [ theAdinkra tagEnumerator ];
-	while ( theTag = [tagEnumerator nextObject] ) {
+	for ( id theTag in [ theAdinkra tags ]) {
 		Vertex *theVertex = [theAdinkra vertexWithTag: theTag];
 		
 		if ( !(++value & 0x000001fL ) )
@@ -531,10 +518,7 @@
 	CliffordOperation *operations[32];
 	[operationArray getObjects: operations];
 	
-	NSEnumerator *tagEnumerator = [theAdinkra tagEnumerator];
-	id theTag;
-	tagEnumerator = [ theAdinkra tagEnumerator ];
-	while ( theTag = [tagEnumerator nextObject] ) {
+    for ( id theTag in [ theAdinkra tags ]) {
 		Vertex *theVertex = [theAdinkra vertexWithTag: theTag];
 		
 		int Q;

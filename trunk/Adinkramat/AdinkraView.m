@@ -452,9 +452,7 @@ if ( !drawFast ) {
 	BOOL shouldDrawFast = fillWindow && ( [theAdinkra vertexCount] > 256 );
 	
 	if ( !shouldDrawFast && ( vertexSize >= 1.0 ) ) {
-		NSEnumerator *tagEnumerator = [theAdinkra tagEnumerator];
-		id aTag;
-		while ( aTag = [tagEnumerator nextObject] ) {
+		for ( id aTag in [ theAdinkra tags ]) {
 			Vertex *aVertex = [theAdinkra vertexWithTag: aTag];
 
 			NSPoint location = [aVertex location];
@@ -754,11 +752,8 @@ if ( !drawFast ) {
 								  ( maxHorizontal - minHorizontal + 2.0 ) * scale.width + 40.0, 
 								  ( max - min + 2.0) * scale.height + 50.0 );
 	}
-							
-	NSEnumerator *enumerator = [theAdinkra vertexEnumerator];
-	Vertex *vertex;
-	
-	while ( vertex = [enumerator nextObject] ) {
+    
+	for ( Vertex *vertex in [theAdinkra vertices]) {
 		[vertex setLocation: NSMakePoint ( [vertex horizontal] * scale.width,
 										   [vertex degree] * scale.height ) ];
 	}
@@ -813,9 +808,7 @@ if ( !drawFast ) {
 {
 	float vertexSize = vertexRadius + edgeThickness;
 	
-	NSEnumerator *enumerator = [theAdinkra vertexEnumerator];
-	Vertex *vertex;
-	while ( vertex = [enumerator nextObject] ) {
+	for ( Vertex *vertex in [ theAdinkra vertices ]) {
 		NSPoint location = [vertex location];
 		NSRect	theRect = NSMakeRect ( location.x - vertexSize, location.y - vertexSize, 2 * vertexSize, 2 * vertexSize );
 		if ( NSPointInRect ( testPoint, theRect ) ) {
