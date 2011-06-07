@@ -47,7 +47,7 @@
 // Other methods
 //
 
-- (void)cachePaths;
+//- (void)cachePaths;
 - (NSRect)shrinkWrappedBounds;
 - (void)locateVerticesWithAnimation: (BOOL)animate;
 - (Vertex *)vertexHit: (NSPoint)testPoint;

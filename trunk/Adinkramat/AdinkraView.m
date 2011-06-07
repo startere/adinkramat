@@ -153,10 +153,8 @@
         [vertexFillPath appendBezierPathWithOvalInRect:vertexRect];
         [strokePath appendBezierPathWithOvalInRect:vertexRect];
 	}
-
-	float array[2];
-	array[0] = 3*edgeThickness;
-	array[1] = 3*edgeThickness;
+    
+	CGFloat array[2] = { 3*edgeThickness, 3*edgeThickness};
 
 	NSShadow* theShadow;
 	[NSGraphicsContext saveGraphicsState]; 
@@ -203,7 +201,7 @@
 			aPath = [ transparentDashedEdgePaths objectAtIndex: (i-1) ];
 			[ aPath setLineCapStyle: shouldDrawFast ? NSSquareLineCapStyle : NSRoundLineCapStyle ];
 			[ aPath setLineWidth: edgeThickness ];
-			[ aPath setLineDash: array count: drawDashedEdges ? 2 : 0 phase: 0.0];
+			[ aPath setLineDash:array count: drawDashedEdges ? 2 : 0 phase: 0.0];
 			[ aPath stroke ];
 		}
 	
@@ -839,7 +837,7 @@ if ( !drawFast ) {
 
 #pragma mark Key-Value Observing
 
-- (void)observeValueForKeyPath:keyPath ofObject: object change:change context: context
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	float newEdgeThickness = [[NSUserDefaults standardUserDefaults] floatForKey: @"edgeThickness" ];
 	float newVertexRadius = [[NSUserDefaults standardUserDefaults] floatForKey: @"vertexRadius" ];
