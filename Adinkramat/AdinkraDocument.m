@@ -8,6 +8,7 @@
 
 #import "AdinkraDocument.h"
 #import "Adinkra+Clifford.h"
+#import "AdinkramatAppDelegate.h"
 #import "Clifford.h"
 
 @implementation AdinkraDocument
@@ -71,6 +72,9 @@
 		
 		[dashedEdgesButton setIntValue: drawDashedEdges];
 		[adinkraView setDrawDashedEdges: drawDashedEdges];
+        
+        // Enable inspector.
+        [ self enableView:inspectorView ];
 
 		if ( !awake ) {
 			awake = YES;
@@ -247,20 +251,20 @@
 
 - (BOOL)validateMenuItem:(id <NSMenuItem>)menuItem
 {
-
 	if ( [menuItem action] == @selector(scaleToWindow:) ) {
 		if ( [adinkraView doesFillWindow] )
 			[menuItem setState: NSOnState];
 		else
 			[menuItem setState: NSOffState];
 	}
-
+#if DRAWER
 	if ( [menuItem action] == @selector(toggleEdgeDrawer:) ) {
 		if ( [edgeDrawer state] == NSDrawerOpenState || [edgeDrawer state] == NSDrawerOpeningState )
 			[menuItem setTitle: @"Hide Edge Drawer"];
 		else
 			[menuItem setTitle: @"Show Edge Drawer"];
 	}
+#endif
 
 	return true;
 }
@@ -280,12 +284,12 @@
 	
 	[adinkraView setNeedsDisplay: TRUE];
 }
-
+#if DRAWER
 - (IBAction)toggleEdgeDrawer:(id)sender
 {
 	[edgeDrawer toggle:self];
 }
-
+#endif
 #pragma mark AdinkraDocument Actions
 
 - (IBAction)allEdgesUpToN:(id)sender
@@ -382,7 +386,7 @@
 	[dashedEdgesButton setIntValue: (N > 8) ? 0 : 1];
 	[adinkraView setDrawDashedEdges: (N > 8) ? NO : YES];
 	
-	[self detatchAdinkraConstructionThread];	
+	[self detatchAdinkraConstructionThread];
 }
 
 - (IBAction)showEdges:(id)sender
@@ -497,7 +501,43 @@
 	}	
 }
 
+#pragma mark Inspector Methods
+
+// JP - 6/30/11
+// Inspector methods. Referenced "http://www.borkware.com/rants/inspectors/".
+- (void) postNotification: (NSString *) notificationName {
+    [[NSNotificationCenter defaultCenter] postNotificationName: notificationName object: self];
+}
+
+-(void) enableView:(NSView *) view {
+    for ( NSView *subView in [ view subviews ]) {
+        if( [subView respondsToSelector:@selector(setEnabled:)] )
+            [(NSControl*)subView setEnabled:YES];
+        
+        [ self enableView:subView ];
+        //[ subView display ];
+    }
+}
+
 #pragma mark NSWindow Delegate Methods
+
+
+// JP - 6/30/11
+- (void) windowDidBecomeMain: (NSNotification *) notification {
+    [self postNotification: AdinkraDocument_DocumentActivateNotification];
+    
+}
+
+// JP - 6/30/11
+- (void) windowDidResignMain: (NSNotification *) notification {
+    [self postNotification: AdinkraDocument_DocumentDeactivateNotification];
+    
+}
+
+// JP - 6/30/11
+- (void) windowWillClose: (NSNotification *) notification {
+    [self postNotification: AdinkraDocument_DocumentDeactivateNotification];
+}
 
 - (NSRect)windowWillUseStandardFrame:(NSWindow *)sender defaultFrame:(NSRect)defaultFrame
 {
@@ -567,7 +607,10 @@
 	[self performSelectorOnMainThread:@selector(setAdinkra:)
 						   withObject:anAdinkra
 						waitUntilDone:YES ];
-						
+    
+    // Enable inspector.
+    [ self enableView:inspectorView ];
+    
 	[pool release];
 	pool = nil;
 }
