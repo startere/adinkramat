@@ -9,6 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "AdinkraView.h"
 
+#define DRAWER 0
+
+static NSString *AdinkraDocument_DocumentDeactivateNotification = @"AdinkraDocument_DocumentDeactivateNotification";
+static NSString *AdinkraDocument_DocumentActivateNotification = @"AdinkraDocument_DocumentActivateNotification";
+
 @interface AdinkraDocument : NSDocument <ShowsProgress> {
 
 //	IBOutlet NSWindow *window;
@@ -19,7 +24,10 @@
     IBOutlet id adinkraType;
     IBOutlet AdinkraView *adinkraView;
 	IBOutlet id dashedEdgesButton;
-    IBOutlet id edgeDrawer;
+	IBOutlet id inspectorView;
+#if DRAWER
+    IBOutlet id edgeDrawer; 
+#endif
     IBOutlet id edgeMatrix;
     IBOutlet id edgeMax;
 	IBOutlet id edgeStepper;
@@ -51,7 +59,9 @@
 //
 
 - (IBAction)scaleToWindow:(id)sender;
+#if DRAWER
 - (IBAction)toggleEdgeDrawer:(id)sender;
+#endif
 
 //
 // Actions specific to AdinkraDocument
