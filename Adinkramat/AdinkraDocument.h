@@ -36,6 +36,16 @@ static NSString *AdinkraDocument_DocumentActivateNotification = @"AdinkraDocumen
 	IBOutlet id oneEdge;
 	IBOutlet id oneEdgeStepper;
 	IBOutlet id extendedValise;
+    
+    /*
+    // Handle collapsible views
+    IBOutlet CollapsibleView *dimesionExtensionView;
+    IBOutlet id *dimesionExtensionButton;
+    */
+    
+	//IBOutlet AdinkraIndicator *temp;// - old
+    
+    BOOL autoCheckExtension;
 	
 	// To pass to AdinkraView once awake
 	Adinkra *theAdinkra;
@@ -66,6 +76,7 @@ static NSString *AdinkraDocument_DocumentActivateNotification = @"AdinkraDocumen
 //
 // Actions specific to AdinkraDocument
 //
+//- (IBAction)setTempsss:(id)sender;// - old
 
 - (IBAction)allEdgesUpToN:(id)sender;
 - (IBAction)cancel:(id)sender;
@@ -103,5 +114,13 @@ static NSString *AdinkraDocument_DocumentActivateNotification = @"AdinkraDocumen
 // Operation methods
 - (IBAction)duplicateAdinkra:(id)sender;
 
+// Extension methods
+- (IBAction)checkExtension:(id) sender;
+/*
+ - (IBAction)toggleExtension:(id) sender;
+
+// Collapsible view methods
+- (IBAction)toggleDimensionalExtensionView:(id) sender;
+*/
 
 @end

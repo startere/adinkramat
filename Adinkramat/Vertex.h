@@ -7,12 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class Edge;
 
-@interface Vertex : NSObject {
+@interface Vertex : NSObject <NSCopying> {
 	BOOL			isFermion;
 	BOOL			isHidden;
 	int				degree;
-	NSMutableArray	*edges;
+	NSMutableDictionary	*edges;
 	
 	int				horizontal;
 	NSPoint			location;
@@ -51,6 +52,7 @@
 - (BOOL)isSource;
 - (BOOL)isSink;
 - (Vertex *)applyQ: (int)Q;
+- (Edge *)getQ: (int)Q;
 - (void)addEdge: (id)edge;
 
 @end

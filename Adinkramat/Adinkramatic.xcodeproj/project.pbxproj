@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A16A72B13C3F07A00F5C690 /* Gamma.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16A72A13C3F07A00F5C690 /* Gamma.m */; };
+		1A20A7B413FCC095008A8681 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A20A7B313FCC094008A8681 /* QuartzCore.framework */; };
+		1A816E51131994AF001FC0CD /* AdinkramatAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A816E50131994AF001FC0CD /* AdinkramatAppDelegate.m */; };
+		1A8DC90713C3655100EE4ACE /* Adinkra+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DC90613C3655100EE4ACE /* Adinkra+Extension.m */; };
+		1AA07C7413BCFD2F00E7B974 /* AdinkraInspectorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA07C7313BCFD2F00E7B974 /* AdinkraInspectorWindowController.m */; };
+		1AA07C7613BD103A00E7B974 /* Inspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA07C7513BD103A00E7B974 /* Inspector.xib */; };
 		37112FD20ABF8A1400DDADF0 /* CliffordOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37112FD10ABF8A1400DDADF0 /* CliffordOperation.m */; };
 		3723D2DD0A8DD19E00B69D4F /* DFGHIL.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3723D2DC0A8DD19E00B69D4F /* DFGHIL.icns */; };
 		37770FA30A8D6B1A00C9BF9D /* AdinkraDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 37770FA20A8D6B1A00C9BF9D /* AdinkraDocument.m */; };
@@ -30,6 +36,16 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1A16A72913C3F07A00F5C690 /* Gamma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gamma.h; sourceTree = "<group>"; };
+		1A16A72A13C3F07A00F5C690 /* Gamma.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gamma.m; sourceTree = "<group>"; };
+		1A20A7B313FCC094008A8681 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		1A816E4F131994AF001FC0CD /* AdinkramatAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdinkramatAppDelegate.h; sourceTree = "<group>"; };
+		1A816E50131994AF001FC0CD /* AdinkramatAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdinkramatAppDelegate.m; sourceTree = "<group>"; };
+		1A8DC90513C3655000EE4ACE /* Adinkra+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Adinkra+Extension.h"; sourceTree = "<group>"; };
+		1A8DC90613C3655100EE4ACE /* Adinkra+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Adinkra+Extension.m"; sourceTree = "<group>"; };
+		1AA07C7213BCFD2F00E7B974 /* AdinkraInspectorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdinkraInspectorWindowController.h; sourceTree = "<group>"; };
+		1AA07C7313BCFD2F00E7B974 /* AdinkraInspectorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdinkraInspectorWindowController.m; sourceTree = "<group>"; };
+		1AA07C7513BD103A00E7B974 /* Inspector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Inspector.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -69,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A20A7B413FCC095008A8681 /* QuartzCore.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,27 +96,35 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				37C55D170A90192A004B2444 /* ShowsProgress.h */,
-				37C55D790A902037004B2444 /* Vertex.h */,
-				37C55D7A0A902037004B2444 /* Vertex.m */,
-				37C55D960A9021A8004B2444 /* Edge.h */,
-				37C55D970A9021A8004B2444 /* Edge.m */,
+				37C55EC30A903014004B2444 /* Adinkra+Clifford.h */,
+				37C55EC40A903014004B2444 /* Adinkra+Clifford.m */,
+				1A8DC90513C3655000EE4ACE /* Adinkra+Extension.h */,
+				1A8DC90613C3655100EE4ACE /* Adinkra+Extension.m */,
 				37FAD6980A7B2BF30078C7E2 /* Adinkra.h */,
 				37FAD6990A7B2BF30078C7E2 /* Adinkra.m */,
+				37770FA10A8D6B1A00C9BF9D /* AdinkraDocument.h */,
+				37770FA20A8D6B1A00C9BF9D /* AdinkraDocument.m */,
+				1AA07C7213BCFD2F00E7B974 /* AdinkraInspectorWindowController.h */,
+				1AA07C7313BCFD2F00E7B974 /* AdinkraInspectorWindowController.m */,
+				1A816E4F131994AF001FC0CD /* AdinkramatAppDelegate.h */,
+				1A816E50131994AF001FC0CD /* AdinkramatAppDelegate.m */,
+				37A623470A86A697006D562D /* AdinkraView.h */,
+				37A6234A0A86A75B006D562D /* AdinkraView.m */,
 				37C55DAF0A90231D004B2444 /* Clifford.h */,
 				37C55DB00A90231D004B2444 /* Clifford.m */,
 				37112FD00ABF8A1400DDADF0 /* CliffordOperation.h */,
 				37112FD10ABF8A1400DDADF0 /* CliffordOperation.m */,
-				37C55EC30A903014004B2444 /* Adinkra+Clifford.h */,
-				37C55EC40A903014004B2444 /* Adinkra+Clifford.m */,
-				37770FA10A8D6B1A00C9BF9D /* AdinkraDocument.h */,
-				37770FA20A8D6B1A00C9BF9D /* AdinkraDocument.m */,
-				37A623470A86A697006D562D /* AdinkraView.h */,
-				37A6234A0A86A75B006D562D /* AdinkraView.m */,
+				37C6D5361318D02800283260 /* DoublyEvenCode.h */,
+				37C6D5351318D02800283260 /* DoublyEvenCode.m */,
+				37C55D960A9021A8004B2444 /* Edge.h */,
+				37C55D970A9021A8004B2444 /* Edge.m */,
+				1A16A72913C3F07A00F5C690 /* Gamma.h */,
+				1A16A72A13C3F07A00F5C690 /* Gamma.m */,
 				37BFB5030A8B15020061617A /* NSUserDefaults+myColorSupport.h */,
 				37BFB5040A8B15020061617A /* NSUserDefaults+myColorSupport.m */,
-				37C6D5351318D02800283260 /* DoublyEvenCode.m */,
-				37C6D5361318D02800283260 /* DoublyEvenCode.h */,
+				37C55D170A90192A004B2444 /* ShowsProgress.h */,
+				37C55D790A902037004B2444 /* Vertex.h */,
+				37C55D7A0A902037004B2444 /* Vertex.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -107,6 +132,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A20A7B313FCC094008A8681 /* QuartzCore.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -161,6 +187,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				37770FB90A8D6D2C00C9BF9D /* AdinkraDocument.nib */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				1AA07C7513BD103A00E7B974 /* Inspector.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -229,6 +256,7 @@
 				37BFBAF30A8B35110061617A /* defaults.plist in Resources */,
 				37770FBA0A8D6D2C00C9BF9D /* AdinkraDocument.nib in Resources */,
 				3723D2DD0A8DD19E00B69D4F /* DFGHIL.icns in Resources */,
+				1AA07C7613BD103A00E7B974 /* Inspector.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +278,10 @@
 				37C55EC50A903014004B2444 /* Adinkra+Clifford.m in Sources */,
 				37112FD20ABF8A1400DDADF0 /* CliffordOperation.m in Sources */,
 				37C6D5371318D02800283260 /* DoublyEvenCode.m in Sources */,
+				1A816E51131994AF001FC0CD /* AdinkramatAppDelegate.m in Sources */,
+				1AA07C7413BCFD2F00E7B974 /* AdinkraInspectorWindowController.m in Sources */,
+				1A8DC90713C3655100EE4ACE /* Adinkra+Extension.m in Sources */,
+				1A16A72B13C3F07A00F5C690 /* Gamma.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +318,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Adinkramat;
+				SDKROOT = "";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -294,16 +327,15 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Adinkramat;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -311,20 +343,24 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Release;
 		};

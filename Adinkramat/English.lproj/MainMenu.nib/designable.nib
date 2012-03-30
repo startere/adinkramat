@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">10J869</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
-		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.SystemVersion">11D50</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
+		<string key="IBDocument.AppKitVersion">1138.32</string>
+		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1305</string>
+			<string key="NS.object.0">1938</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSMenu</string>
@@ -31,7 +31,10 @@
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 		</array>
-		<dictionary class="NSMutableDictionary" key="IBDocument.Metadata"/>
+		<object class="NSMutableDictionary" key="IBDocument.Metadata">
+			<string key="NS.key.0">PluginDependencyRecalculationVersion</string>
+			<integer value="1" key="NS.object.0"/>
+		</object>
 		<array class="NSMutableArray" key="IBDocument.RootObjects" id="171033144">
 			<object class="NSCustomObject" id="54765373">
 				<object class="NSMutableString" key="NSClassName">
@@ -938,6 +941,25 @@
 									<reference key="NSOnImage" ref="821341737"/>
 									<reference key="NSMixedImage" ref="930678765"/>
 								</object>
+								<object class="NSMenuItem" id="1070105029">
+									<reference key="NSMenu" ref="164247108"/>
+									<string key="NSTitle">Check Extension</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="821341737"/>
+									<reference key="NSMixedImage" ref="930678765"/>
+								</object>
+								<object class="NSMenuItem" id="19037911">
+									<reference key="NSMenu" ref="164247108"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="821341737"/>
+									<reference key="NSMixedImage" ref="930678765"/>
+								</object>
 								<object class="NSMenuItem" id="1035543643">
 									<reference key="NSMenu" ref="164247108"/>
 									<string key="NSTitle">Pack into Valise</string>
@@ -1109,6 +1131,7 @@
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
 				</object>
+				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{213, 107}</string>
 				<object class="NSView" key="NSWindowView" id="868468723">
 					<nil key="NSNextResponder"/>
@@ -1120,7 +1143,7 @@
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="NSView" id="192941582">
 									<reference key="NSNextResponder" ref="461305713"/>
-									<int key="NSvFlags">256</int>
+									<int key="NSvFlags">274</int>
 									<array class="NSMutableArray" key="NSSubviews">
 										<object class="NSTextField" id="378971318">
 											<reference key="NSNextResponder" ref="192941582"/>
@@ -1588,7 +1611,7 @@
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="NSView" id="939851842">
 									<reference key="NSNextResponder" ref="294486665"/>
-									<int key="NSvFlags">256</int>
+									<int key="NSvFlags">274</int>
 									<array class="NSMutableArray" key="NSSubviews">
 										<object class="NSColorWell" id="181476504">
 											<reference key="NSNextResponder" ref="939851842"/>
@@ -2307,53 +2330,27 @@
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMinSize">{213, 129}</string>
-				<string key="NSMaxSize">{1e+13, 1e+13}</string>
+				<string key="NSMaxSize">{9.9999998e+12, 9.9999998e+12}</string>
+				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSUserDefaultsController" id="851006512">
 				<bool key="NSSharedInstance">YES</bool>
+			</object>
+			<object class="NSView" id="450073426">
+				<nil key="NSNextResponder"/>
+				<int key="NSvFlags">256</int>
+				<string key="NSFrameSize">{125, 1}</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">performMiniaturize:</string>
-						<reference key="source" ref="245079337"/>
-						<reference key="destination" ref="471229959"/>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="320282844"/>
+						<reference key="destination" ref="800344752"/>
 					</object>
-					<int key="connectionID">37</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">arrangeInFront:</string>
-						<reference key="source" ref="245079337"/>
-						<reference key="destination" ref="843804979"/>
-					</object>
-					<int key="connectionID">39</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">runPageLayout:</string>
-						<reference key="source" ref="245079337"/>
-						<reference key="destination" ref="1013822306"/>
-					</object>
-					<int key="connectionID">87</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showHelp:</string>
-						<reference key="source" ref="245079337"/>
-						<reference key="destination" ref="1067425977"/>
-					</object>
-					<int key="connectionID">122</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">clearRecentDocuments:</string>
-						<reference key="source" ref="245079337"/>
-						<reference key="destination" ref="1043029261"/>
-					</object>
-					<int key="connectionID">127</int>
+					<int key="connectionID">944</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2394,6 +2391,46 @@
 						<reference key="destination" ref="960323899"/>
 					</object>
 					<int key="connectionID">153</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">performMiniaturize:</string>
+						<reference key="source" ref="245079337"/>
+						<reference key="destination" ref="471229959"/>
+					</object>
+					<int key="connectionID">37</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">arrangeInFront:</string>
+						<reference key="source" ref="245079337"/>
+						<reference key="destination" ref="843804979"/>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">runPageLayout:</string>
+						<reference key="source" ref="245079337"/>
+						<reference key="destination" ref="1013822306"/>
+					</object>
+					<int key="connectionID">87</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showHelp:</string>
+						<reference key="source" ref="245079337"/>
+						<reference key="destination" ref="1067425977"/>
+					</object>
+					<int key="connectionID">122</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">clearRecentDocuments:</string>
+						<reference key="source" ref="245079337"/>
+						<reference key="destination" ref="1043029261"/>
+					</object>
+					<int key="connectionID">127</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2477,14 +2514,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">makeKeyAndOrderFront:</string>
-						<reference key="source" ref="58830544"/>
-						<reference key="destination" ref="711015236"/>
-					</object>
-					<int key="connectionID">445</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">newDocument:</string>
 						<reference key="source" ref="245079337"/>
 						<reference key="destination" ref="299031444"/>
@@ -2546,758 +2575,6 @@
 						<reference key="destination" ref="862794461"/>
 					</object>
 					<int key="connectionID">671</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.vertexRadius</string>
-						<reference key="source" ref="114686890"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="114686890"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.vertexRadius</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.vertexRadius</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">674</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.vertexRadius</string>
-						<reference key="source" ref="1036582452"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1036582452"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.vertexRadius</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.vertexRadius</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">676</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.edgeThickness</string>
-						<reference key="source" ref="621347913"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="621347913"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.edgeThickness</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.edgeThickness</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">678</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.edgeThickness</string>
-						<reference key="source" ref="776826210"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="776826210"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.edgeThickness</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.edgeThickness</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">680</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.vertexSpacing</string>
-						<reference key="source" ref="243368634"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="243368634"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.vertexSpacing</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.vertexSpacing</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">683</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.vertexSpacing</string>
-						<reference key="source" ref="241057351"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="241057351"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.vertexSpacing</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.vertexSpacing</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">685</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q1Color</string>
-						<reference key="source" ref="181476504"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="181476504"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q1Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q1Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">787</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q2Color</string>
-						<reference key="source" ref="856476615"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="856476615"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q2Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q2Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">788</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q3Color</string>
-						<reference key="source" ref="820291950"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="820291950"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q3Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q3Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">789</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q4Color</string>
-						<reference key="source" ref="236240878"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="236240878"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q4Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q4Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">790</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q8Color</string>
-						<reference key="source" ref="363319139"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="363319139"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q8Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q8Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">791</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q7Color</string>
-						<reference key="source" ref="85525113"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="85525113"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q7Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q7Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">792</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q6Color</string>
-						<reference key="source" ref="353085339"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="353085339"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q6Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q6Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">793</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q5Color</string>
-						<reference key="source" ref="247774303"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="247774303"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q5Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q5Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">794</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q12Color</string>
-						<reference key="source" ref="1045848012"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1045848012"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q12Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q12Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">795</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q11Color</string>
-						<reference key="source" ref="1046711742"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1046711742"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q11Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q11Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">796</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q10Color</string>
-						<reference key="source" ref="418540742"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="418540742"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q10Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q10Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">797</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q9Color</string>
-						<reference key="source" ref="73925981"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="73925981"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q9Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q9Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">798</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q16Color</string>
-						<reference key="source" ref="804232017"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="804232017"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q16Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q16Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">799</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q15Color</string>
-						<reference key="source" ref="918495184"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="918495184"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q15Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q15Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">800</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q14Color</string>
-						<reference key="source" ref="138583403"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="138583403"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q14Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q14Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">801</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q13Color</string>
-						<reference key="source" ref="556321931"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="556321931"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q13Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q13Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">802</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q17Color</string>
-						<reference key="source" ref="47789191"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="47789191"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q17Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q17Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">803</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q18Color</string>
-						<reference key="source" ref="444297177"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="444297177"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q18Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q18Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">804</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q19Color</string>
-						<reference key="source" ref="611986739"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="611986739"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q19Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q19Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">805</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q20Color</string>
-						<reference key="source" ref="106618735"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="106618735"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q20Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q20Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">806</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q21Color</string>
-						<reference key="source" ref="81570588"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="81570588"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q21Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q21Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">807</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q22Color</string>
-						<reference key="source" ref="911017183"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="911017183"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q22Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q22Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">808</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q23Color</string>
-						<reference key="source" ref="236829400"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="236829400"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q23Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q23Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">809</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q24Color</string>
-						<reference key="source" ref="939078013"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="939078013"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q24Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q24Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">810</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q28Color</string>
-						<reference key="source" ref="430790469"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="430790469"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q28Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q28Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">811</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q32Color</string>
-						<reference key="source" ref="233150082"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="233150082"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q32Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q32Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">812</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q31Color</string>
-						<reference key="source" ref="256901690"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="256901690"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q31Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q31Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">813</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q27Color</string>
-						<reference key="source" ref="437992002"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="437992002"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q27Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q27Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">814</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q26Color</string>
-						<reference key="source" ref="474547103"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="474547103"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q26Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q26Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">815</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q30Color</string>
-						<reference key="source" ref="45952328"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="45952328"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q30Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q30Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">816</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q25Color</string>
-						<reference key="source" ref="215254691"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="215254691"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q25Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q25Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">817</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Q29Color</string>
-						<reference key="source" ref="656022608"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="656022608"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.Q29Color</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Q29Color</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">818</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.drawShadow</string>
-						<reference key="source" ref="146496187"/>
-						<reference key="destination" ref="851006512"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="146496187"/>
-							<reference key="NSDestination" ref="851006512"/>
-							<string key="NSLabel">value: values.drawShadow</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.drawShadow</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">828</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -3636,14 +2913,6 @@
 					<int key="connectionID">942</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="320282844"/>
-						<reference key="destination" ref="800344752"/>
-					</object>
-					<int key="connectionID">944</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleVertexVisibility:</string>
 						<reference key="source" ref="245079337"/>
@@ -3666,6 +2935,774 @@
 						<reference key="destination" ref="7202532"/>
 					</object>
 					<int key="connectionID">950</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">checkExtension:</string>
+						<reference key="source" ref="245079337"/>
+						<reference key="destination" ref="1070105029"/>
+					</object>
+					<int key="connectionID">955</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">makeKeyAndOrderFront:</string>
+						<reference key="source" ref="58830544"/>
+						<reference key="destination" ref="711015236"/>
+					</object>
+					<int key="connectionID">445</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.vertexRadius</string>
+						<reference key="source" ref="114686890"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="114686890"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.vertexRadius</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.vertexRadius</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">674</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.edgeThickness</string>
+						<reference key="source" ref="621347913"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="621347913"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.edgeThickness</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.edgeThickness</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">678</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.vertexRadius</string>
+						<reference key="source" ref="1036582452"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1036582452"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.vertexRadius</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.vertexRadius</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">676</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.edgeThickness</string>
+						<reference key="source" ref="776826210"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="776826210"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.edgeThickness</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.edgeThickness</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">680</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q1Color</string>
+						<reference key="source" ref="181476504"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="181476504"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q1Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q1Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">787</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q5Color</string>
+						<reference key="source" ref="247774303"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="247774303"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q5Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q5Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">794</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q9Color</string>
+						<reference key="source" ref="73925981"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="73925981"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q9Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q9Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">798</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q13Color</string>
+						<reference key="source" ref="556321931"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="556321931"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q13Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q13Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">802</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q17Color</string>
+						<reference key="source" ref="47789191"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="47789191"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q17Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q17Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">803</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q21Color</string>
+						<reference key="source" ref="81570588"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="81570588"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q21Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q21Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">807</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q25Color</string>
+						<reference key="source" ref="215254691"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="215254691"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q25Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q25Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">817</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q29Color</string>
+						<reference key="source" ref="656022608"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="656022608"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q29Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q29Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">818</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q2Color</string>
+						<reference key="source" ref="856476615"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="856476615"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q2Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q2Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">788</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q6Color</string>
+						<reference key="source" ref="353085339"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="353085339"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q6Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q6Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">793</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q10Color</string>
+						<reference key="source" ref="418540742"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="418540742"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q10Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q10Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">797</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q14Color</string>
+						<reference key="source" ref="138583403"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="138583403"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q14Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q14Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">801</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q18Color</string>
+						<reference key="source" ref="444297177"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="444297177"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q18Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q18Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">804</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q22Color</string>
+						<reference key="source" ref="911017183"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="911017183"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q22Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q22Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">808</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q26Color</string>
+						<reference key="source" ref="474547103"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="474547103"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q26Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q26Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">815</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q30Color</string>
+						<reference key="source" ref="45952328"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="45952328"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q30Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q30Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">816</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q3Color</string>
+						<reference key="source" ref="820291950"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="820291950"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q3Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q3Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">789</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q7Color</string>
+						<reference key="source" ref="85525113"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="85525113"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q7Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q7Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">792</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q11Color</string>
+						<reference key="source" ref="1046711742"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1046711742"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q11Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q11Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">796</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q15Color</string>
+						<reference key="source" ref="918495184"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="918495184"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q15Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q15Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">800</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q19Color</string>
+						<reference key="source" ref="611986739"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="611986739"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q19Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q19Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">805</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q23Color</string>
+						<reference key="source" ref="236829400"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="236829400"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q23Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q23Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">809</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q27Color</string>
+						<reference key="source" ref="437992002"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="437992002"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q27Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q27Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">814</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q31Color</string>
+						<reference key="source" ref="256901690"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="256901690"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q31Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q31Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">813</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q4Color</string>
+						<reference key="source" ref="236240878"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="236240878"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q4Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q4Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">790</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q8Color</string>
+						<reference key="source" ref="363319139"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="363319139"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q8Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q8Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">791</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q12Color</string>
+						<reference key="source" ref="1045848012"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1045848012"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q12Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q12Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">795</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q16Color</string>
+						<reference key="source" ref="804232017"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="804232017"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q16Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q16Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">799</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q20Color</string>
+						<reference key="source" ref="106618735"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="106618735"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q20Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q20Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">806</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q24Color</string>
+						<reference key="source" ref="939078013"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="939078013"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q24Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q24Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">810</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q28Color</string>
+						<reference key="source" ref="430790469"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="430790469"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q28Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q28Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">811</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Q32Color</string>
+						<reference key="source" ref="233150082"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="233150082"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.Q32Color</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Q32Color</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSUnarchiveFromData</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">812</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.vertexSpacing</string>
+						<reference key="source" ref="241057351"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="241057351"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.vertexSpacing</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.vertexSpacing</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">685</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.vertexSpacing</string>
+						<reference key="source" ref="243368634"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="243368634"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.vertexSpacing</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.vertexSpacing</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">683</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.drawShadow</string>
+						<reference key="source" ref="146496187"/>
+						<reference key="destination" ref="851006512"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="146496187"/>
+							<reference key="NSDestination" ref="851006512"/>
+							<string key="NSLabel">value: values.drawShadow</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.drawShadow</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">828</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4084,6 +4121,8 @@
 							<reference ref="930183274"/>
 							<reference ref="679557160"/>
 							<reference ref="275885614"/>
+							<reference ref="1070105029"/>
+							<reference ref="19037911"/>
 						</array>
 						<reference key="parent" ref="528184175"/>
 					</object>
@@ -4583,19 +4622,8 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">822</int>
 						<reference key="object" ref="301661182"/>
-						<array class="NSMutableArray" key="children">
-							<object class="NSView" id="450073426">
-								<nil key="NSNextResponder"/>
-								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{2, 2}, {125, 1}}</string>
-							</object>
-						</array>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="461305713"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">823</int>
-						<reference key="object" ref="450073426"/>
-						<reference key="parent" ref="301661182"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">824</int>
@@ -4890,6 +4918,21 @@
 						<reference key="object" ref="920377890"/>
 						<reference key="parent" ref="152709329"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">951</int>
+						<reference key="object" ref="1070105029"/>
+						<reference key="parent" ref="164247108"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">952</int>
+						<reference key="object" ref="19037911"/>
+						<reference key="parent" ref="164247108"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">823</int>
+						<reference key="object" ref="450073426"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -4897,336 +4940,169 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="103.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="103.ImportedFromIB2"/>
 				<string key="106.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="106.ImportedFromIB2"/>
 				<string key="111.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="111.ImportedFromIB2"/>
 				<string key="112.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="112.ImportedFromIB2"/>
 				<string key="124.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="124.ImportedFromIB2"/>
 				<string key="125.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="125.ImportedFromIB2"/>
 				<string key="126.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="126.ImportedFromIB2"/>
 				<string key="129.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="129.ImportedFromIB2"/>
 				<string key="130.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="130.ImportedFromIB2"/>
 				<string key="131.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="131.ImportedFromIB2"/>
 				<string key="134.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="134.ImportedFromIB2"/>
 				<string key="136.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="136.ImportedFromIB2"/>
 				<string key="143.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="143.ImportedFromIB2"/>
 				<string key="144.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="144.ImportedFromIB2"/>
 				<string key="145.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="145.ImportedFromIB2"/>
 				<string key="149.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="149.ImportedFromIB2"/>
 				<string key="150.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="150.ImportedFromIB2"/>
 				<string key="156.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="156.ImportedFromIB2"/>
 				<string key="157.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="157.ImportedFromIB2"/>
 				<string key="158.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="158.ImportedFromIB2"/>
 				<string key="160.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="160.ImportedFromIB2"/>
 				<string key="163.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="163.ImportedFromIB2"/>
 				<string key="164.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="164.ImportedFromIB2"/>
 				<string key="169.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="169.ImportedFromIB2"/>
 				<string key="171.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="171.ImportedFromIB2"/>
 				<string key="172.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="172.ImportedFromIB2"/>
 				<string key="173.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="173.ImportedFromIB2"/>
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="19.ImportedFromIB2"/>
 				<string key="196.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="196.ImportedFromIB2"/>
 				<string key="197.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="197.ImportedFromIB2"/>
 				<string key="204.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="204.ImportedFromIB2"/>
 				<string key="228.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="228.ImportedFromIB2"/>
 				<string key="229.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="229.ImportedFromIB2"/>
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="23.ImportedFromIB2"/>
-				<string key="24.IBEditorWindowLastContentRect">{{609, 672}, {194, 73}}</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="24.ImportedFromIB2"/>
 				<string key="241.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="241.ImportedFromIB2"/>
 				<string key="242.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="242.ImportedFromIB2"/>
 				<string key="243.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="243.ImportedFromIB2"/>
 				<string key="244.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="244.ImportedFromIB2"/>
 				<string key="245.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="245.ImportedFromIB2"/>
 				<string key="246.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="246.ImportedFromIB2"/>
 				<string key="256.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="256.ImportedFromIB2"/>
-				<string key="29.IBEditorWindowLastContentRect">{{287, 745}, {547, 20}}</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="29.ImportedFromIB2"/>
 				<string key="326.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="326.ImportedFromIB2"/>
 				<string key="327.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="327.ImportedFromIB2"/>
 				<string key="328.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="328.ImportedFromIB2"/>
 				<string key="329.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="329.ImportedFromIB2"/>
 				<string key="330.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="330.ImportedFromIB2"/>
 				<string key="331.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="331.ImportedFromIB2"/>
 				<string key="332.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="332.ImportedFromIB2"/>
 				<string key="333.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="333.ImportedFromIB2"/>
 				<string key="334.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="334.ImportedFromIB2"/>
 				<string key="335.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="335.ImportedFromIB2"/>
 				<string key="336.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="336.ImportedFromIB2"/>
 				<string key="337.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="337.ImportedFromIB2"/>
 				<string key="338.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="338.ImportedFromIB2"/>
 				<string key="339.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="339.ImportedFromIB2"/>
 				<string key="340.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="340.ImportedFromIB2"/>
 				<string key="341.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="341.ImportedFromIB2"/>
 				<string key="342.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="342.ImportedFromIB2"/>
 				<string key="343.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="343.ImportedFromIB2"/>
 				<string key="344.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="344.ImportedFromIB2"/>
 				<string key="345.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="345.ImportedFromIB2"/>
 				<string key="346.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="346.ImportedFromIB2"/>
 				<string key="347.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="347.ImportedFromIB2"/>
 				<string key="348.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="348.ImportedFromIB2"/>
 				<string key="349.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="349.ImportedFromIB2"/>
 				<string key="350.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="350.ImportedFromIB2"/>
 				<string key="351.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="351.ImportedFromIB2"/>
 				<string key="352.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="352.ImportedFromIB2"/>
 				<string key="353.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="353.ImportedFromIB2"/>
 				<string key="354.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="354.ImportedFromIB2"/>
 				<string key="355.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="355.ImportedFromIB2"/>
 				<string key="356.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="356.ImportedFromIB2"/>
 				<string key="357.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="357.ImportedFromIB2"/>
 				<string key="358.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="358.ImportedFromIB2"/>
 				<string key="360.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="360.ImportedFromIB2"/>
 				<string key="361.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="361.ImportedFromIB2"/>
 				<string key="362.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="362.ImportedFromIB2"/>
 				<string key="363.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="363.ImportedFromIB2"/>
 				<string key="364.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="364.ImportedFromIB2"/>
 				<string key="365.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="365.ImportedFromIB2"/>
 				<string key="366.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="366.ImportedFromIB2"/>
 				<string key="367.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="367.ImportedFromIB2"/>
 				<string key="368.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="368.ImportedFromIB2"/>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="5.ImportedFromIB2"/>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="56.ImportedFromIB2"/>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="57.ImportedFromIB2"/>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="58.ImportedFromIB2"/>
 				<string key="629.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="629.ImportedFromIB2"/>
 				<string key="630.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="630.ImportedFromIB2"/>
 				<string key="650.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="650.ImportedFromIB2"/>
 				<string key="651.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="651.ImportedFromIB2"/>
 				<string key="658.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="658.ImportedFromIB2"/>
 				<string key="660.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="660.ImportedFromIB2"/>
 				<string key="662.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="662.ImportedFromIB2"/>
 				<string key="663.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="663.ImportedFromIB2"/>
 				<string key="664.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="664.ImportedFromIB2"/>
 				<string key="665.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="665.ImportedFromIB2"/>
 				<string key="670.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="670.ImportedFromIB2"/>
 				<string key="672.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="672.ImportedFromIB2"/>
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="72.ImportedFromIB2"/>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="73.ImportedFromIB2"/>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="74.ImportedFromIB2"/>
 				<string key="75.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="75.ImportedFromIB2"/>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="77.ImportedFromIB2"/>
 				<string key="78.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="78.ImportedFromIB2"/>
 				<string key="79.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="79.ImportedFromIB2"/>
 				<string key="80.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="80.ImportedFromIB2"/>
 				<string key="81.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="81.ImportedFromIB2"/>
 				<string key="82.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="82.ImportedFromIB2"/>
 				<string key="822.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="822.ImportedFromIB2"/>
 				<string key="823.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="823.ImportedFromIB2"/>
 				<string key="824.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="824.ImportedFromIB2"/>
 				<string key="829.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="829.ImportedFromIB2"/>
 				<string key="83.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="83.ImportedFromIB2"/>
-				<string key="830.IBEditorWindowLastContentRect">{{538, 552}, {252, 193}}</string>
 				<string key="830.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="830.ImportedFromIB2"/>
 				<string key="835.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="835.ImportedFromIB2"/>
 				<string key="836.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="836.ImportedFromIB2"/>
 				<string key="839.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="839.ImportedFromIB2"/>
 				<string key="841.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="841.ImportedFromIB2"/>
 				<string key="842.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="842.ImportedFromIB2"/>
 				<string key="846.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="846.ImportedFromIB2"/>
 				<string key="847.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="847.ImportedFromIB2"/>
 				<string key="848.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="848.ImportedFromIB2"/>
 				<string key="851.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="851.ImportedFromIB2"/>
 				<string key="852.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="852.ImportedFromIB2"/>
 				<string key="853.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="853.ImportedFromIB2"/>
 				<string key="854.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="854.ImportedFromIB2"/>
 				<string key="855.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="855.ImportedFromIB2"/>
 				<string key="856.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="856.ImportedFromIB2"/>
 				<string key="857.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="857.ImportedFromIB2"/>
 				<string key="858.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="858.ImportedFromIB2"/>
 				<string key="859.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="859.ImportedFromIB2"/>
 				<string key="860.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="860.ImportedFromIB2"/>
 				<string key="861.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="861.ImportedFromIB2"/>
 				<string key="862.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="862.ImportedFromIB2"/>
 				<string key="863.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="863.ImportedFromIB2"/>
 				<string key="864.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="864.ImportedFromIB2"/>
 				<string key="865.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="865.ImportedFromIB2"/>
 				<string key="866.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="866.ImportedFromIB2"/>
 				<string key="867.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="867.ImportedFromIB2"/>
 				<string key="868.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="868.ImportedFromIB2"/>
 				<string key="869.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="869.ImportedFromIB2"/>
 				<string key="870.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="870.ImportedFromIB2"/>
 				<string key="871.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="871.ImportedFromIB2"/>
 				<string key="872.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="872.ImportedFromIB2"/>
 				<string key="873.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="873.ImportedFromIB2"/>
 				<string key="874.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="874.ImportedFromIB2"/>
 				<string key="875.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="875.ImportedFromIB2"/>
 				<string key="876.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="876.ImportedFromIB2"/>
 				<string key="877.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="877.ImportedFromIB2"/>
 				<string key="878.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="878.ImportedFromIB2"/>
 				<string key="879.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="879.ImportedFromIB2"/>
 				<string key="880.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="880.ImportedFromIB2"/>
 				<string key="881.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="881.ImportedFromIB2"/>
 				<string key="882.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="882.ImportedFromIB2"/>
 				<string key="883.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="883.ImportedFromIB2"/>
 				<string key="884.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="884.ImportedFromIB2"/>
 				<string key="885.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="885.ImportedFromIB2"/>
 				<string key="886.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="886.ImportedFromIB2"/>
 				<string key="887.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="887.ImportedFromIB2"/>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="92.ImportedFromIB2"/>
 				<string key="921.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="921.ImportedFromIB2"/>
 				<string key="923.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="924.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="925.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5239,26 +5115,23 @@
 				<string key="932.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="933.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="934.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="934.ImportedFromIB2"/>
-				<string key="935.IBEditorWindowLastContentRect">{{609, 672}, {145, 73}}</string>
 				<string key="935.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="935.ImportedFromIB2"/>
 				<string key="936.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="937.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="938.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="938.ImportedFromIB2"/>
 				<string key="939.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="939.ImportedFromIB2"/>
 				<string key="943.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="945.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="947.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="948.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="951.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="952.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">950</int>
+			<int key="maxID">955</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5269,6 +5142,7 @@
 						<string key="OK:">id</string>
 						<string key="allEdgesUpToN:">id</string>
 						<string key="cancel:">id</string>
+						<string key="checkExtension:">id</string>
 						<string key="dashedEdges:">id</string>
 						<string key="duplicateAdinkra:">id</string>
 						<string key="new:">id</string>
@@ -5288,6 +5162,10 @@
 						</object>
 						<object class="IBActionInfo" key="cancel:">
 							<string key="name">cancel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="checkExtension:">
+							<string key="name">checkExtension:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="dashedEdges:">
@@ -5581,8 +5459,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NSMenuCheckmark">{9, 8}</string>
-			<string key="NSMenuMixedState">{7, 2}</string>
+			<string key="NSMenuCheckmark">{11, 11}</string>
+			<string key="NSMenuMixedState">{10, 3}</string>
 			<string key="NSSwitch">{15, 15}</string>
 		</dictionary>
 	</data>

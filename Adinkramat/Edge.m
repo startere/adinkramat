@@ -68,6 +68,12 @@
 	return [ from isHidden ] || [ to isHidden ];
 }
 
+// JP - 7/12/11
+// Checks if edge goes upwards from vertex. Assumes adjacent vertices cannot have the same degree.
+- (BOOL)isUpFromVertex: (Vertex *)vertex {
+    return [[ self vertexAdjacentToVertex:vertex ] degree ] < [ vertex degree ];
+}
+
 - (void)setNegative: (BOOL)newNegative
 {
 	isNegative = newNegative;

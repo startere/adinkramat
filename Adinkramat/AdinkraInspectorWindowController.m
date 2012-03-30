@@ -10,8 +10,7 @@
 
 
 @implementation AdinkraInspectorWindowController
-
-//static AdinkraInspectorWindowController *sharedInstance;
+@synthesize noSelectionView;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -33,6 +32,7 @@
 - (void)dealloc
 {
     [[ NSNotificationCenter defaultCenter ] removeObserver:self ];
+    [ self setNoSelectionView:nil ];
     
     [super dealloc];
 }
@@ -43,8 +43,6 @@
     
     [self setShouldCascadeWindows: NO];
     [self setWindowFrameAutosaveName: @"inspectorWindow"];
-    
-    //[self setDocument: [self document]];??
 }
 
 - (NSString *) windowTitleForDocumentDisplayName: (NSString *) name {
@@ -62,14 +60,13 @@
 
 - (void) documentDeactivateNotification: (NSNotification *) notification {
     [self setDocument: nil];
-    // Hide inspector, or show message "No Adinkra selected."
 }
 
 - (void) setDocument: (NSDocument *) document {
     [super setDocument: document];
     
-    // retain prevous view??
-    [[ self window ] setContentView:[ document valueForKey:@"inspectorView" ]];
+    NSView *view = document ? [ document valueForKey:@"inspectorView" ] : noSelectionView;
+    [[ self window ] setContentView:view ];
 }
 
 @end
