@@ -73,12 +73,12 @@
 // JP - 3/2/11
 // Support for hidden vertices.
 - (Vertex *)initWithDegree: (int)newDegree isFermion: (BOOL)newFermion horizontal: (int)newHorizontal hidden:(BOOL) newHidden {
-	if ( self = [super init] ) {
+	if (( self = [super init] )) {
 		degree = newDegree;
 		isFermion = newFermion;
 		isHidden = newHidden;
 		horizontal = newHorizontal;
-		edges = [[NSMutableArray alloc] init];
+		edges = [[NSMutableDictionary alloc] init];//[[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -145,19 +145,13 @@
 
 - (void)changeSign
 {
-	NSEnumerator *enumerator = [edges objectEnumerator];
-	id edge;
-	
-	while ( edge = [enumerator nextObject] )
+    for ( Edge *edge in [ edges allValues ] )
 		[edge changeSign];
 }
 
 - (BOOL)isSource
 {
-	NSEnumerator *enumerator = [edges objectEnumerator];
-	id edge;
-	
-	while ( edge = [enumerator nextObject] ) {
+    for ( Edge *edge in [ edges allValues ] ) {
 		if ( [[edge vertexAdjacentToVertex:self] degree] > degree )
 			return NO;
 	}
@@ -167,10 +161,7 @@
 
 - (BOOL)isSink
 {
-	NSEnumerator *enumerator = [edges objectEnumerator];
-	id edge;
-
-	while ( edge = [enumerator nextObject] ) {
+    for ( Edge *edge in [ edges allValues ] ) {
 		if ( [[edge vertexAdjacentToVertex:self] degree] < degree )
 			return NO;
 	}
@@ -225,21 +216,40 @@
 }
 */
 
+// JP - 8/27/11
 - (void)addEdge: (id)edge
 {
-	[edges addObject: edge];
+    [ edges setObject:edge forKey:[ NSNumber numberWithInt:[ edge Q ]]];
+	/*
+    [edges addObject: edge];
+    
+    // JP - 8/27/11
+    [ edges sortUsingComparator:(NSComparator)^(id obj1, id obj2) {
+        return [ obj1 Q ] > [ obj2 Q ];
+    }];*/
 }
 
+// JP - 7/12/11
 - (Vertex *)applyQ: (int)Q
 {
-	NSEnumerator *enumerator = [edges objectEnumerator];
-	Edge *edge;
-	
-	while ( edge = [enumerator nextObject] )
+    Edge *edge = [ self getQ:Q ];
+    
+    if (edge)
+        return [ edge vertexAdjacentToVertex:self ];
+    
+    return nil;
+}
+
+// JP - 8/27/11
+- (Edge *)getQ: (int)Q {
+    return [ edges objectForKey:[ NSNumber numberWithInt:Q ]];
+    /*
+    for ( Edge *edge in edges )
 		if ( [edge Q] == Q )
-			return [edge vertexAdjacentToVertex: self];
+			return edge;
 	
 	return nil;
+     */
 }
 
 /*
@@ -254,5 +264,16 @@
 		return [tag isEqual: anObject];
 }
 */
+
+-(NSString *) description {
+    return [ NSString stringWithFormat:@"(%d,%d)",horizontal,degree ];
+}
+
+#pragma mark NSCopying Protocol
+
+// Is this okay because the coding associated with a vertex is immutable??
+- (id)copyWithZone:(NSZone *)zone {
+    return [ self retain ];
+}
 
 @end

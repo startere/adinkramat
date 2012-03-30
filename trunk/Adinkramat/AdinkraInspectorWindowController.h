@@ -10,12 +10,10 @@
 #import "AdinkraDocument.h"
 
 @interface AdinkraInspectorWindowController : NSWindowController {
-//    IBOutlet NSView *inspectorView;
+@private
+    NSView *noSelectionView;
 }
 
-/*
-+ (AdinkraInspectorWindowController *) sharedController;
-- (void) show;
-*/
+@property (retain) IBOutlet NSView *noSelectionView;
 
 @end

@@ -34,6 +34,7 @@
 - (Vertex *)to;
 - (BOOL)isNegative;
 - (BOOL)isHidden;
+- (BOOL)isUpFromVertex: (Vertex *)vertex;
 - (void)setNegative: (BOOL)newNegative;
 - (int)Q;
 

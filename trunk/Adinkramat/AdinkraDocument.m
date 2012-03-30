@@ -8,6 +8,7 @@
 
 #import "AdinkraDocument.h"
 #import "Adinkra+Clifford.h"
+#import "Adinkra+Extension.h"
 #import "AdinkramatAppDelegate.h"
 #import "Clifford.h"
 
@@ -19,7 +20,6 @@
 {
     self = [super init];
     if (self) {
-    
 		theAdinkra = nil;
 		showEdges = nil;
 		edgeSet = nil;
@@ -27,7 +27,10 @@
 		drawDashedEdges = YES;
 		awake = NO;
 		cancelled = NO;
+        autoCheckExtension = NO;
 		pool = nil;
+        
+        // Establish collapsed bindings
     }
     return self;
 }
@@ -80,6 +83,7 @@
 			awake = YES;
 			if ( N > 8 )
 				[adinkraView setFillWindow: YES];
+            // else autoCheckExtension = YES;
 			[self resizeWindowToAdinkra];
 		}
 	}
@@ -257,6 +261,14 @@
 		else
 			[menuItem setState: NSOffState];
 	}
+    /*
+    else if ( [ menuItem action ] == @selector(toggleExtension:)){
+        if ( autoCheckExtension)
+            [ menuItem setState:NSOnState ];
+        else
+            [ menuItem setState:NSOffState ];
+    }
+     */
 #if DRAWER
 	if ( [menuItem action] == @selector(toggleEdgeDrawer:) ) {
 		if ( [edgeDrawer state] == NSDrawerOpenState || [edgeDrawer state] == NSDrawerOpeningState )
@@ -290,7 +302,16 @@
 	[edgeDrawer toggle:self];
 }
 #endif
+
+/*
 #pragma mark AdinkraDocument Actions
+- (IBAction)setTempsss:(id)sender {
+    //[NSAnimationContext beginGrouping];
+    //[[NSAnimationContext currentContext] setDuration:5.0f];
+    [[ temp animator ] setBrightness:.1 ];
+    //[NSAnimationContext endGrouping];
+}
+*/
 
 - (IBAction)allEdgesUpToN:(id)sender
 {
@@ -609,6 +630,7 @@
 						waitUntilDone:YES ];
     
     // Enable inspector.
+    // Note: Performing in background thread.
     [ self enableView:inspectorView ];
     
 	[pool release];
@@ -674,5 +696,49 @@
 	[ duplicate showWindows ];
 	[ duplicate release ];
 }
+
+#pragma mark Extension methods
+
+// JP - 3/30/11
+// Checks whether an Adinkra extends to higher dimensions.
+- (IBAction)checkExtension:(id) sender {
+    [[ adinkraView adinkra ] checkExtension ];
+}
+
+/*
+// JP - 7/13/11
+// Toggles to check whether an Adinkra extends to higher dimensions.
+- (IBAction)toggleExtension:(id) sender {
+    if ( autoCheckExtension) {
+        //turn off binding/notifications
+        
+        // cancel any current checking
+        // set colors to grey(default)
+    }
+    else {
+        //begin binding
+        //call func {
+        ///check if already checking
+        [[ adinkraView adinkra ] checkExtension ];
+        ///if not: checkextension in new thread
+        
+        ///[NSThread detachNewThreadSelector:@selector(checkExtension:) toTarget:[ adinkraView adinkra ] withObject:nil];
+        /// What happens when document is closed? Application quits?
+        
+        //}
+    }
+    
+    autoCheckExtension = !autoCheckExtension;
+}
+
+
+#pragma mark Collapsible view methods
+
+// JP - 11/16/11
+// Toggles if the dimensional extension view is collapsed.
+- (IBAction)toggleDimensionalExtensionView:(id) sender {
+    [ dimesionExtensionView toggleCollapsed ];
+}
+*/
 
 @end

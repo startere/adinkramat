@@ -16,10 +16,24 @@
 
 // JP - 6/30/11
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+    // Register our defaults.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
+	
+    [defaults registerDefaults:appDefaults];
+	[[NSUserDefaultsController sharedUserDefaultsController] setInitialValues:appDefaults ];
+    
+    // Load Inspector.
     if (![NSBundle loadNibNamed:@"Inspector" owner:self ])
         NSLog(@"Warning: Failed to load inspector.");
+    
+    [ inspectorWindow setIsVisible:[[ NSUserDefaults standardUserDefaults ] boolForKey:@"inspectorVisible" ]];
 }
 
+// JP - 9/2/11
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+    [[ NSUserDefaults standardUserDefaults ] setBool:[ inspectorWindow isVisible ] forKey:@"inspectorVisible" ];
+}
 
 #pragma mark -
 #pragma mark Interface Methods
