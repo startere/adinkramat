@@ -1,0 +1,1 @@
+Adinkras are a diagrammatic way of describing representations of supersymmetry. They are bipartite N-edge colored N-regular graphs, with additional information attached to their vertices and edges. The Adinkramat was created to generate images of Adinkras for use in scientific papers, but it can also be used as interactive tool to explore the structure of Adinkras.
